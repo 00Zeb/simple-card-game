@@ -35,12 +35,18 @@ public class CardsGameTest {
 		int p1Wins = 0;
 		int p2Wins = 0;
 		for (int i = 0; i < p2Cards.length; i++) {
-			if(p1Cards[i] > p2Cards[i])
+			int p1Value = valueOf(p1Cards[i]);
+			int p2Value = valueOf(p2Cards[i]);
+			if(p1Value > p2Value)
 				p1Wins++;
-			if(p1Cards[i] < p2Cards[i])
+			if(p1Value < p2Value)
 				p2Wins++;
 		}
 		return determineWinner(p1Wins, p2Wins);
+	}
+
+	private int valueOf(char c) {
+		return new String(new char[] {'2','3','4','5','6','7','8','9','T','J','Q','K','A'}).indexOf(c);
 	}
 
 	private String determineWinner(int p1Wins, int p2Wins) {
