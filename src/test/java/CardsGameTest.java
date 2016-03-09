@@ -10,6 +10,11 @@ public class CardsGameTest {
 		assertEquals("draw", gameResult(new char[] {'2'}, new char[] {'2'}));
 	}
 
+	@Test
+	public void single_card() throws Exception {
+		assertEquals("p1 wins 1 to 0", gameResult(new char[] {'3'}, new char[] {'2'}));
+	}
+
 	private Object gameResult(char[] cs, char[] cs2) {
 		// TODO Auto-generated method stub
 		return "draw";
