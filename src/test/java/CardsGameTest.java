@@ -17,6 +17,7 @@ public class CardsGameTest {
 	@Test
 	public void single_card() throws Exception {
 		assertEquals("p1 wins 1 to 0", gameResult(hand('3'), hand('2')));
+		assertEquals("p2 wins 1 to 0", gameResult(hand('2'), hand('3')));
 	}
 
 	@Test
