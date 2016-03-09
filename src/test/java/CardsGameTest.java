@@ -10,6 +10,11 @@ public class CardsGameTest {
 		assertEquals("draw", gameResult(hand('2'), hand('2')));
 	}
 
+	@Test
+	public void faced_card() throws Exception {
+		assertEquals("p1 wins 1 to 0", gameResult(hand('J'), hand('T')));
+	}
+
 	private char[] hand(char... values) {
 		return values;
 	}
