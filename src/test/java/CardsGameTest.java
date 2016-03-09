@@ -35,8 +35,10 @@ public class CardsGameTest {
 			if(p1Cards[i] < p2Cards[i])
 				p2Wins++;
 		}
-		if(p1Wins > 0)
+		if(p1Wins > p2Wins)
 			return "p1 wins " + p1Wins + " to " + p2Wins;
+		if(p1Wins < p2Wins)
+			return "p2 wins " + p2Wins + " to " + p1Wins;
 		return "draw";
 	}
 }
