@@ -27,12 +27,15 @@ public class CardsGameTest {
 
 	private String gameResult(char[] p1Cards, char[] p2Cards) {
 		int p1Wins = 0;
+		int p2Wins = 0;
 		for (int i = 0; i < p2Cards.length; i++) {
 			if(p1Cards[i] > p2Cards[i])
 				p1Wins++;
+			if(p1Cards[i] < p2Cards[i])
+				p2Wins++;
 		}
 		if(p1Wins > 0)
-			return "p1 wins " + p1Wins + " to 0";
+			return "p1 wins " + p1Wins + " to " + p2Wins;
 		return "draw";
 	}
 }
