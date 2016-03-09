@@ -25,8 +25,13 @@ public class CardsGameTest {
 	}
 
 	private String gameResult(char[] p1Cards, char[] p2Cards) {
-		if(p1Cards[0] > p2Cards[0])
-			return "p1 wins 1 to 0";
+		int p1Wins = 0;
+		for (int i = 0; i < p2Cards.length; i++) {
+			if(p1Cards[i] > p2Cards[i])
+				p1Wins++;
+		}
+		if(p1Wins > 0)
+			return "p1 wins " + p1Wins + " to 0";
 		return "draw";
 	}
 }
