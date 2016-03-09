@@ -12,6 +12,6 @@ public class CardsGameTest {
 
 	private Object gameResult(char[] cs, char[] cs2) {
 		// TODO Auto-generated method stub
-		return null;
+		return "draw";
 	}
 }
