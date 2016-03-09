@@ -15,9 +15,9 @@ public class CardsGameTest {
 		assertEquals("p1 wins 1 to 0", gameResult(new char[] {'3'}, new char[] {'2'}));
 	}
 
-	private Object gameResult(char[] cs, char[] cs2) {
+	private String gameResult(char[] p1Cards, char[] p2Cards) {
 		// TODO Auto-generated method stub
-		if(cs[0] > cs2[0])
+		if(p1Cards[0] > p2Cards[0])
 			return "p1 wins 1 to 0";
 		return "draw";
 	}
