@@ -35,6 +35,10 @@ public class CardsGameTest {
 			if(p1Cards[i] < p2Cards[i])
 				p2Wins++;
 		}
+		return determineWinner(p1Wins, p2Wins);
+	}
+
+	private String determineWinner(int p1Wins, int p2Wins) {
 		if(p1Wins > p2Wins)
 			return "p1 wins " + p1Wins + " to " + p2Wins;
 		if(p1Wins < p2Wins)
