@@ -22,6 +22,7 @@ public class CardsGameTest {
 	@Test
 	public void multiple_cards() throws Exception {
 		assertEquals("p1 wins 2 to 0", gameResult(hand('3','3'), hand('2','2')));
+		assertEquals("p1 wins 2 to 1", gameResult(hand('3','3','2'), hand('2','2','3')));
 	}
 
 	private String gameResult(char[] p1Cards, char[] p2Cards) {
