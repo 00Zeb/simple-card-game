@@ -17,6 +17,8 @@ public class CardsGameTest {
 
 	private Object gameResult(char[] cs, char[] cs2) {
 		// TODO Auto-generated method stub
+		if(cs[0] > cs2[0])
+			return "p1 wins 1 to 0";
 		return "draw";
 	}
 }
