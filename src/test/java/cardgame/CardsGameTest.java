@@ -1,9 +1,13 @@
+package cardgame;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 
 public class CardsGameTest {
+	private CardGame cardGame = new CardGame();
+	
 
 	@Test
 	public void draw() throws Exception {
@@ -31,5 +35,4 @@ public class CardsGameTest {
 		assertEquals("p1 wins 2 to 1", cardGame.gameResult(hand('3','3','2'), hand('2','2','3')));
 	}
 
-	private CardGame cardGame = new CardGame(new char[] { '2', '3', '4', '5', '6', '7', '8', '9','T','J'});
 }
