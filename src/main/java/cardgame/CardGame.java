@@ -3,8 +3,8 @@ package cardgame;
 public class CardGame {
 	private final char[] cards;
 
-	public CardGame() {
-		this.cards = new char[] { '2', '3', '4', '5', '6', '7', '8', '9','T','J'};
+	public CardGame(char[] cards) {
+		this.cards = cards;
 	}
 
 	public String gameResult(char[] p1Cards, char[] p2Cards) {
