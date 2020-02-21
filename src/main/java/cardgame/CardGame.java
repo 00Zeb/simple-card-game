@@ -5,11 +5,9 @@ import java.util.LinkedHashMap;
 public class CardGame {
 	private final LinkedHashMap<String, Player> players;
 	private final Dealer dealer;
-	private final CardDeck cardDeck;
 
 	public CardGame(Dealer dealer) {
 		this.dealer = dealer;
-		this.cardDeck = new CardDeck();
 		this.players = createPlayers("p1", "p2");
 	}
 
@@ -18,8 +16,8 @@ public class CardGame {
 		int p1Wins = 0;
 		int p2Wins = 0;
 		for (int index = 0; index < cardsToDraw; index++) {
-			int p1Value = cardDeck.valueOf(cardOfPlayer("p1")[index]);
-			int p2Value = cardDeck.valueOf(cardOfPlayer("p2")[index]);
+			int p1Value = CardDeck.valueOf(cardOfPlayer("p1")[index]);
+			int p2Value = CardDeck.valueOf(cardOfPlayer("p2")[index]);
 			if (p1Value > p2Value)
 				p1Wins++;
 			if (p1Value < p2Value)

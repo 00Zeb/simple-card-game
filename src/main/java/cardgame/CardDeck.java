@@ -1,13 +1,19 @@
 package cardgame;
 
-public class CardDeck {
-	public final char[] cardDeck;
+public enum CardDeck {
+	INSTANCE;
 
-	public CardDeck() {
-		this.cardDeck = new char[] { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J' };
+	private final char[] deck;
+
+	private CardDeck() {
+		this.deck = new char[] { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J' };
 	}
 
-	public int valueOf(char c) {
-		return new String(cardDeck).indexOf(c);
+	public static char get(int number) {
+		return INSTANCE.deck[number % INSTANCE.deck.length];
+	}
+
+	public static int valueOf(char c) {
+		return new String(INSTANCE.deck).indexOf(c);
 	}
 }
