@@ -12,7 +12,7 @@ public class CardGame {
 	}
 
 	public String gameResult(int cardsToDraw) {
-		players.forEach((name, player) -> dealer.deal(player, cardsToDraw));
+		players.forEach((name, player) -> dealer.deal(player));
 		int p1Wins = 0;
 		int p2Wins = 0;
 		for (int index = 0; index < cardsToDraw; index++) {
