@@ -11,11 +11,11 @@ public class CardGame {
 		this.players = createPlayers("p1", "p2");
 	}
 
-	public String gameResult(int cardsToDraw) {
+	public String gameResult() {
 		players.forEach((name, player) -> dealer.deal(player));
 		int p1Wins = 0;
 		int p2Wins = 0;
-		for (int index = 0; index < cardsToDraw; index++) {
+		for (int index = 0; index < nrOfCards(); index++) {
 			int p1Value = CardDeck.valueOf(cardOfPlayer("p1")[index]);
 			int p2Value = CardDeck.valueOf(cardOfPlayer("p2")[index]);
 			if (p1Value > p2Value)
@@ -24,6 +24,10 @@ public class CardGame {
 				p2Wins++;
 		}
 		return determineWinner(p1Wins, p2Wins);
+	}
+
+	private int nrOfCards() {
+		return players.get("p1").getCards().length;
 	}
 
 	private String determineWinner(int p1Wins, int p2Wins) {
