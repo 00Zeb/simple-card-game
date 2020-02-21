@@ -1,13 +1,13 @@
 package application;
 
-import cardgame.CardGame;
 import cardgame.Dealer;
+import cardgame.SimpleCardGame;
 
 public class Main {
 
 	public static void main(String[] args) {
-		CardGame cardGame = new CardGame(new Dealer());
-		String gameResult = cardGame.gameResult(5);
+		SimpleCardGame cardGame = new SimpleCardGame(new Dealer());
+		String gameResult = cardGame.play();
 		System.out.println(gameResult);
 	}
 }
