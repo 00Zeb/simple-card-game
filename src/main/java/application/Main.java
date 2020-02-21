@@ -6,8 +6,8 @@ import cardgame.SimpleCardGame;
 public class Main {
 
 	public static void main(String[] args) {
-		SimpleCardGame cardGame = new SimpleCardGame(new Dealer());
-		String gameResult = cardGame.play();
-		System.out.println(gameResult);
+		Dealer dealer = new Dealer(5);
+		SimpleCardGame cardGame = new SimpleCardGame(dealer);
+		System.out.println(cardGame.play());
 	}
 }

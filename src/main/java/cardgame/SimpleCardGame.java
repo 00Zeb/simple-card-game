@@ -15,11 +15,11 @@ public class SimpleCardGame {
 	}
 
 	public String play() {
-		players.forEach((name, player) -> dealer.deal(player, 5));
-		return cardGame.gameResult(cardOfPlayer("p1"), cardOfPlayer("p2"));
+		players.forEach((name, player) -> dealer.deal(player));
+		return cardGame.gameResult(cardsOfPlayer("p1"), cardsOfPlayer("p2"));
 	}
 
-	private char[] cardOfPlayer(String playerName) {
+	private char[] cardsOfPlayer(String playerName) {
 		return players.get(playerName).getCards();
 	}
 
