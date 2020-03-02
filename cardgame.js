@@ -3,8 +3,8 @@ const CardDeck = require('./carddeck');
 
 module.exports = class CardGame {
 
-    constructor(dealer) {
-        this.dealer = dealer;
+    constructor(deal) {
+        this.deal = deal;
         this.players = {
             p1: new Player("p1"),
             p2: new Player("p2"),
@@ -13,7 +13,7 @@ module.exports = class CardGame {
 
     gameResult() {
         for (const player in this.players) {
-            this.dealer.deal(this.players[player]);
+            this.deal(this.players[player], 5);
         }
 
         let p1Wins = 0;
