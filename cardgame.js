@@ -26,7 +26,10 @@ module.exports = class CardGame {
             if (p1Value < p2Value)
                 p2Wins++;
         }
-        return this.determineWinner(p1Wins, p2Wins);
+        const gameResult = this.determineWinner(p1Wins, p2Wins);
+        let date = new Date();
+        const time = date.toLocaleDateString() + " " + date.toLocaleTimeString();
+        return `game played at ${time}, ${gameResult}.`;
     }
 
     nrOfCards() {
