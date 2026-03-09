@@ -21,4 +21,8 @@ describe('cardsGame', () => {
     expect(cardsGame(['A'], ['K'])).toBe('Steve wins 1 to 0');
   });
 
+  it('multiple rounds count all scores', () => {
+    expect(cardsGame(['A', '8'], ['K', '2'])).toBe('Steve wins 2 to 0');
+  });
+
 });
