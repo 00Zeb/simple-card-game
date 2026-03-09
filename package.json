@@ -1,0 +1,12 @@
+{
+  "name": "simple-card-game",
+  "version": "1.0.0",
+  "description": "Simple card game kata with JavaScript/Jest and Java solutions",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
