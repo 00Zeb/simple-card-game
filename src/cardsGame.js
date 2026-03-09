@@ -4,15 +4,17 @@ function cardsGame(steveDeck, danielDeck) {
   if (!steveDeck || !danielDeck || steveDeck.length === 0) {
     return "Tie";
   }
-  const s = rank.indexOf(steveDeck[0]);
-  const d = rank.indexOf(danielDeck[0]);
-  if (s === d) {
-    return "Tie";
+  let steveScore = 0;
+  let joshScore = 0;
+  for (let i = 0; i < steveDeck.length; i++) {
+    const s = rank.indexOf(steveDeck[i]);
+    const d = rank.indexOf(danielDeck[i]);
+    if (s > d) steveScore++;
+    else if (d > s) joshScore++;
   }
-  if (s > d) {
-    return "Steve wins 1 to 0";
-  }
-  return "Josh wins 1 to 0";
+  if (steveScore === joshScore) return "Tie";
+  if (steveScore > joshScore) return `Steve wins ${steveScore} to ${joshScore}`;
+  return `Josh wins ${joshScore} to ${steveScore}`;
 }
 
 module.exports = cardsGame;
