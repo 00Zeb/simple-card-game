@@ -74,4 +74,8 @@ describe('cardsGame', () => {
       expect(cardsGame([rank], [rank])).toBe('Tie');
     },
   );
+
+  it('matches the README example', () => {
+    expect(cardsGame(['A', '7', '8'], ['K', '5', '9'])).toBe('Steve wins 2 to 1');
+  });
 });
