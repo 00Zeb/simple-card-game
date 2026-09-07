@@ -5,7 +5,7 @@ describe('cardsGame', () => {
     cardsGame = require('./cardsGame');
   });
 
-  it.skip('returns Tie for empty decks', () => {
+  it('returns Tie for empty decks', () => {
     expect(cardsGame([], [])).toBe('Tie');
   });
 
