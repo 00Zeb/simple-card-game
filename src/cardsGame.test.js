@@ -24,4 +24,8 @@ describe('cardsGame', () => {
   it('counts every round Josh wins', () => {
     expect(cardsGame(['2', '3'], ['3', '4'])).toBe('Josh wins 2 to 0');
   });
+
+  it('ties when each player wins a round', () => {
+    expect(cardsGame(['3', '2'], ['2', '3'])).toBe('Tie');
+  });
 });
