@@ -16,4 +16,8 @@ describe('cardsGame', () => {
   it('ties when the cards are equal', () => {
     expect(cardsGame(['3'], ['3'])).toBe('Tie');
   });
+
+  it('counts every round Steve wins', () => {
+    expect(cardsGame(['3', '4'], ['2', '3'])).toBe('Steve wins 2 to 0');
+  });
 });
