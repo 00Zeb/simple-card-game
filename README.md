@@ -27,6 +27,8 @@ The function should return one of three outcomes:
 
 **Result:** `"Steve wins 2 to 1"`
 
-## Source
-
-[Codewars Kata](https://www.codewars.com/kata/53417de006654f4171000587)
+## Instructions
+* Use a test list and solve the task iteratively using TDD.
+* Commit the test list and treat it as a living document.
+* Commit on red, green, refactor separatively.
+ 
