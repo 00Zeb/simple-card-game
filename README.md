@@ -31,4 +31,4 @@ The function should return one of three outcomes:
 * Use a test list and solve the task iteratively using TDD.
 * Commit the test list and treat it as a living document.
 * Commit on red, green, refactor separatively.
- 
+* Solve the problem using javascript, jest and npm.
