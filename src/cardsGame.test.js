@@ -9,7 +9,7 @@ describe('cardsGame', () => {
     expect(cardsGame([], [])).toBe('Tie');
   });
 
-  it.skip('awards Steve a point when his card is higher', () => {
+  it('awards Steve a point when his card is higher', () => {
     expect(cardsGame(['A'], ['K'])).toBe('Steve wins 1 to 0');
   });
 
