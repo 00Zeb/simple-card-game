@@ -30,7 +30,7 @@ describe('cardsGame', () => {
   });
 
   it('plays multiple rounds and ties overall', () => {
-    expect(cardsGame(['A', '7'], ['K', '7'])).toBe('Tie');
+    expect(cardsGame(['A', '7'], ['K', '8'])).toBe('Tie');
   });
 
   it.skip('plays the README example over three rounds', () => {
