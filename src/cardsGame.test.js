@@ -21,7 +21,7 @@ describe('cardsGame', () => {
     expect(cardsGame(['7'], ['7'])).toBe('Tie');
   });
 
-  it.skip('ranks face cards above number cards', () => {
+  it('ranks face cards above number cards', () => {
     expect(cardsGame(['T'], ['9'])).toBe('Steve wins 1 to 0');
     expect(cardsGame(['J'], ['T'])).toBe('Steve wins 1 to 0');
     expect(cardsGame(['Q'], ['J'])).toBe('Steve wins 1 to 0');
