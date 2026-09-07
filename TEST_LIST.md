@@ -11,7 +11,7 @@ refactor, then ticks it off here. New items get added as they are discovered.
 - [x] one round, equal cards → `"Tie"`
 - [x] ranking is not lexicographic: `'T'` beats `'9'`
 - [x] `'A'` beats `'K'`, `'K'` beats `'Q'`
-- [ ] README example: `['A','7','8']` vs `['K','5','9']` → `"Steve wins 2 to 1"`
+- [x] README example: `['A','7','8']` vs `['K','5','9']` → `"Steve wins 2 to 1"`
 - [ ] multi-round where Josh wins
 - [ ] multi-round with ties interleaved — ties score nothing
 - [ ] equal scores over several rounds → `"Tie"`

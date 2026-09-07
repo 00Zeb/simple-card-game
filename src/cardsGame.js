@@ -5,13 +5,22 @@ function rankOf(card) {
 }
 
 function cardsGame(steve, josh) {
-  if (steve.length > 0) {
-    if (rankOf(steve[0]) > rankOf(josh[0])) {
-      return 'Steve wins 1 to 0';
+  let steveScore = 0;
+  let joshScore = 0;
+
+  for (let round = 0; round < steve.length; round++) {
+    if (rankOf(steve[round]) > rankOf(josh[round])) {
+      steveScore++;
+    } else if (rankOf(josh[round]) > rankOf(steve[round])) {
+      joshScore++;
     }
-    if (rankOf(josh[0]) > rankOf(steve[0])) {
-      return 'Josh wins 1 to 0';
-    }
+  }
+
+  if (steveScore > joshScore) {
+    return `Steve wins ${steveScore} to ${joshScore}`;
+  }
+  if (joshScore > steveScore) {
+    return `Josh wins ${joshScore} to ${steveScore}`;
   }
   return 'Tie';
 }
