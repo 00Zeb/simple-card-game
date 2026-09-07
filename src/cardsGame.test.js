@@ -44,4 +44,27 @@ describe('cardsGame', () => {
   it('ranks Jack above Ten despite alphabetical order', () => {
     expect(cardsGame(['J'], ['T'])).toBe('Steve wins 1 to 0');
   });
+
+  describe.each([
+    ['2', '3'],
+    ['3', '4'],
+    ['4', '5'],
+    ['5', '6'],
+    ['6', '7'],
+    ['7', '8'],
+    ['8', '9'],
+    ['9', 'T'],
+    ['T', 'J'],
+    ['J', 'Q'],
+    ['Q', 'K'],
+    ['K', 'A'],
+  ])('%s ranks below %s', (lower, higher) => {
+    it('awards Steve the point when he holds the higher rank', () => {
+      expect(cardsGame([higher], [lower])).toBe('Steve wins 1 to 0');
+    });
+
+    it('awards Josh the point when he holds the higher rank', () => {
+      expect(cardsGame([lower], [higher])).toBe('Josh wins 1 to 0');
+    });
+  });
 });
