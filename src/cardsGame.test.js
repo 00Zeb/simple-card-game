@@ -67,4 +67,11 @@ describe('cardsGame', () => {
       expect(cardsGame([lower], [higher])).toBe('Josh wins 1 to 0');
     });
   });
+
+  it.each(['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'])(
+    'ties when both players hold %s',
+    (rank) => {
+      expect(cardsGame([rank], [rank])).toBe('Tie');
+    },
+  );
 });
