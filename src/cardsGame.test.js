@@ -40,4 +40,8 @@ describe('cardsGame', () => {
   it('does not add tied rounds to either score', () => {
     expect(cardsGame(['4', '3', '2'], ['3', '3', '2'])).toBe('Steve wins 1 to 0');
   });
+
+  it('ranks Jack above Ten despite alphabetical order', () => {
+    expect(cardsGame(['J'], ['T'])).toBe('Steve wins 1 to 0');
+  });
 });
