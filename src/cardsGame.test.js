@@ -28,4 +28,8 @@ describe('cardsGame', () => {
   it('ties when each player wins a round', () => {
     expect(cardsGame(['3', '2'], ['2', '3'])).toBe('Tie');
   });
+
+  it('reports both scores when Steve wins a mixed game', () => {
+    expect(cardsGame(['4', '3', '2'], ['3', '2', '3'])).toBe('Steve wins 2 to 1');
+  });
 });
