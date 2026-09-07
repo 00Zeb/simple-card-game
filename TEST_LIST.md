@@ -6,7 +6,7 @@ refactor, then ticks it off here. New items get added as they are discovered.
 ## Behaviour
 
 - [x] two empty decks → `"Tie"`
-- [ ] one round, Steve's card higher → `"Steve wins 1 to 0"`
+- [x] one round, Steve's card higher → `"Steve wins 1 to 0"`
 - [ ] one round, Josh's card higher → `"Josh wins 1 to 0"`
 - [ ] one round, equal cards → `"Tie"`
 - [ ] ranking is not lexicographic: `'T'` beats `'9'`
