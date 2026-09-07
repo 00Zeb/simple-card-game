@@ -17,7 +17,7 @@ describe('cardsGame', () => {
     expect(cardsGame(['K'], ['A'])).toBe('Josh wins 0 to 1');
   });
 
-  it.skip('awards no points for tied cards', () => {
+  it('awards no points for tied cards', () => {
     expect(cardsGame(['7'], ['7'])).toBe('Tie');
   });
 
