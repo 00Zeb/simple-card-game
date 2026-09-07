@@ -8,7 +8,7 @@ refactor, then ticks it off here. New items get added as they are discovered.
 - [x] two empty decks → `"Tie"`
 - [x] one round, Steve's card higher → `"Steve wins 1 to 0"`
 - [x] one round, Josh's card higher → `"Josh wins 1 to 0"`
-- [ ] one round, equal cards → `"Tie"`
+- [x] one round, equal cards → `"Tie"`
 - [ ] ranking is not lexicographic: `'T'` beats `'9'`
 - [ ] `'A'` beats `'K'`, `'K'` beats `'Q'`
 - [ ] README example: `['A','7','8']` vs `['K','5','9']` → `"Steve wins 2 to 1"`
@@ -19,4 +19,6 @@ refactor, then ticks it off here. New items get added as they are discovered.
 
 ## Discovered during the cycles
 
-_(nothing yet)_
+- Some list items pass the moment they are written (equal cards, the rank-order
+  items). They are kept as *confirming* tests — they pin behaviour the next
+  refactor could break — and committed in one step, since there is no red to commit.

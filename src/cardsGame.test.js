@@ -13,4 +13,8 @@ describe('cardsGame', () => {
     expect(cardsGame(['3'], ['5'])).toBe('Josh wins 1 to 0');
   });
 
+  it('is a tie when the two cards are equal', () => {
+    expect(cardsGame(['5'], ['5'])).toBe('Tie');
+  });
+
 });
