@@ -32,4 +32,8 @@ describe('cardsGame', () => {
   it('reports both scores when Steve wins a mixed game', () => {
     expect(cardsGame(['4', '3', '2'], ['3', '2', '3'])).toBe('Steve wins 2 to 1');
   });
+
+  it('reports both scores when Josh wins a mixed game', () => {
+    expect(cardsGame(['3', '2', '3'], ['4', '3', '2'])).toBe('Josh wins 2 to 1');
+  });
 });
