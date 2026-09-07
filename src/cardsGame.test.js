@@ -30,4 +30,26 @@ describe('cardsGame', () => {
     expect(cardsGame(['A', '7', '8'], ['K', '5', '9'])).toBe('Steve wins 2 to 1');
   });
 
+  it('lets Josh win a multi-round game', () => {
+    expect(cardsGame(['2', '9', '5'], ['3', 'T', '4'])).toBe('Josh wins 2 to 1');
+  });
+
+  it('scores nothing for the tied rounds in between', () => {
+    expect(cardsGame(['5', 'K', '7'], ['5', 'Q', '7'])).toBe('Steve wins 1 to 0');
+  });
+
+  it('is a tie when both players win the same number of rounds', () => {
+    const ascending = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+    const descending = [...ascending].reverse();
+
+    expect(cardsGame(ascending, descending)).toBe('Tie');
+  });
+
+  it('handles a full thirteen-card deck', () => {
+    const steve = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+    const josh = ['3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', '2'];
+
+    expect(cardsGame(steve, josh)).toBe('Josh wins 12 to 1');
+  });
+
 });
