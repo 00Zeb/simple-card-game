@@ -13,7 +13,7 @@ module.exports = (steve, josh) => {
     else if (s < j) joshScore++;
   }
 
-  if (steveScore > joshScore) return 'Steve wins 1 to 0';
-  if (steveScore < joshScore) return 'Josh wins 0 to 1';
+  if (steveScore > joshScore) return `Steve wins ${steveScore} to ${joshScore}`;
+  if (steveScore < joshScore) return `Josh wins ${steveScore} to ${joshScore}`;
   return 'Tie';
 };
