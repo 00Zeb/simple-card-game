@@ -51,10 +51,12 @@ test list first, and never claim green without a run.
 | Marker | Commit | Time |
 |---|---|---|
 | First commit (test list) | `70c77b9` | 2026-09-07 21:17:20 +02:00 |
-| Last code commit | `14c2df8` | 2026-09-07 21:20:40 +02:00 |
+| Last code commit | `14c2df8` | 2026-09-07 21:20:27 +02:00 |
 
-**≈ 3.5 minutes of wall clock** for the test list, 11 tests, the implementation, two
-refactors and 15 commits. Adding this write-up brings the session to roughly 5–6 minutes.
+**≈ 3 minutes of wall clock** (3 min 07 s) for the test list, 11 tests, the
+implementation, two refactors and 15 commits. Including this write-up the whole run is
+3 min 34 s of committed work; the exploration and planning before the first commit add a
+few more minutes on top.
 The setup commits before `70c77b9` (`54d9db0` and earlier) are the exercise scaffolding and
 are not mine, so the clock starts at the test list.
 
