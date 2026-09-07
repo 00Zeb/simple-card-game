@@ -29,7 +29,7 @@ describe('cardsGame', () => {
     expect(cardsGame(['9'], ['T'])).toBe('Josh wins 0 to 1');
   });
 
-  it.skip('plays multiple rounds and ties overall', () => {
+  it('plays multiple rounds and ties overall', () => {
     expect(cardsGame(['A', '7'], ['K', '7'])).toBe('Tie');
   });
 
