@@ -32,3 +32,6 @@ The function should return one of three outcomes:
 * Commit the test list and treat it as a living document.
 * Commit on red, green, refactor separatively.
 * Solve the problem using javascript, jest and npm.
+* When the solution is done, reflect on whether TDD is useful for agentic development. Also write down the total time it took you to complete the exercise (use the first commit you did and the last commit you did). If you can, also add the total cost in API calls or the amount of tokens.
+
+
