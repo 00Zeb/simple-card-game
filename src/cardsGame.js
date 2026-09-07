@@ -1,5 +1,6 @@
+const CARD_RANKS = '23456789TJQKA';
+
 function cardsGame(steve, josh) {
-  const CARD_RANKS = '23456789TJQKA';
   let steveScore = 0;
   let joshScore = 0;
 
