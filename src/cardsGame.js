@@ -1,11 +1,15 @@
 function cardsGame(steve, josh) {
+  const CARD_RANKS = '23456789TJQKA';
   let steveScore = 0;
   let joshScore = 0;
 
   for (let i = 0; i < steve.length; i += 1) {
-    if (steve[i] > josh[i]) {
+    const steveRank = CARD_RANKS.indexOf(steve[i]);
+    const joshRank = CARD_RANKS.indexOf(josh[i]);
+
+    if (steveRank > joshRank) {
       steveScore += 1;
-    } else if (steve[i] < josh[i]) {
+    } else if (steveRank < joshRank) {
       joshScore += 1;
     }
   }
