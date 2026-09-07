@@ -36,4 +36,8 @@ describe('cardsGame', () => {
   it('reports both scores when Josh wins a mixed game', () => {
     expect(cardsGame(['3', '2', '3'], ['4', '3', '2'])).toBe('Josh wins 2 to 1');
   });
+
+  it('does not add tied rounds to either score', () => {
+    expect(cardsGame(['4', '3', '2'], ['3', '3', '2'])).toBe('Steve wins 1 to 0');
+  });
 });
