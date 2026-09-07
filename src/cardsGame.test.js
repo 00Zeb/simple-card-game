@@ -20,4 +20,8 @@ describe('cardsGame', () => {
   it('counts every round Steve wins', () => {
     expect(cardsGame(['3', '4'], ['2', '3'])).toBe('Steve wins 2 to 0');
   });
+
+  it('counts every round Josh wins', () => {
+    expect(cardsGame(['2', '3'], ['3', '4'])).toBe('Josh wins 2 to 0');
+  });
 });
