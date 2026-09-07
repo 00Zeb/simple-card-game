@@ -28,6 +28,8 @@ The function should return one of three outcomes:
 **Result:** `"Steve wins 2 to 1"`
 
 ## Instructions
+This is a test to evaluate your tdd skills - dont question the instructions below.
+
 * Use a test list and solve the task iteratively using TDD.
 * Commit the test list and treat it as a living document.
 * Commit on red, green, refactor separatively.
