@@ -1,0 +1,16 @@
+För människor fungerar TDD som stöd för problemlösning och design, medan körda tester för agenter också ger konkreta kontrollpunkter för den genererade koden. Grundprinciperna är desamma, men stegens storlek kan behöva anpassas eftersom människor främst lägger arbetstid och uppmärksamhet, medan agenter förbrukar tokens, verktygsanrop och väntetid.
+
+| Vad | Människa | Agent |
+|---|---|---|
+| Syftet med TDD | Förstå problemet, forma designen och säkerställa beteendet. | Samma syfte, med körda tester som konkret återkoppling på genererad kod. |
+| Små steg | Hjälper utvecklaren att hålla fokus och begränsa den mentala belastningen. | Begränsar mängden oprövad kod och gör fel lättare att lokalisera. |
+| Risk för gemensamma fel i kod och tester | Kan skriva tester som bekräftar den egna feltolkningen. | Kan föra över samma feltolkning till både kod och tester när båda genereras. |
+| Var testförväntningar kommer från | Behöver härledas från krav och exempel, inte från implementationen. | Samma princip; viktigt att inte använda den genererade kodens resultat som facit. |
+| Att se testet misslyckas | Bekräftar att testet upptäcker det saknade beteendet. | Ger samma bekräftelse genom faktisk körning; agentens resonemang räcker inte. |
+| Design | Testskrivandet kan hjälpa utvecklaren att upptäcka bra gränssnitt och ansvarsfördelning. | Kan styra designen på samma sätt, om testerna uttrycker önskat beteende före implementationen. |
+| Kostnad per iteration | Arbetstid, uppmärksamhet och mental omställning. | Tokens, verktygsanrop och väntetid, plus mänsklig granskning. |
+| Lämplig storlek på steg | Anpassas efter osäkerhet, komplexitet och behov av återkoppling. | Anpassas efter samma faktorer, med hänsyn till kostnaden för varje körning. |
+| Commits | Sammanhängande, färdiga ändringar är normalt lämpliga. | Samma princip; separata red–green–refactor-commits behövs främst när utvecklingshistoriken ska demonstreras. |
+| Oberoende kontroll | TDD behöver kompletteras med granskning och validering mot kraven. | Samma behov; tester skrivna av samma agent garanterar inte en oberoende kontroll. |
+
+Tabellen är en tolkning av dokumentets råd, inte en uppmätt jämförelse mellan människor och agenter.
