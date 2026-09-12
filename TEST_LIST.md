@@ -8,7 +8,7 @@ are discovered.
 
 - [x] two empty decks → `"Tie"`
 - [x] one round, Steve's card higher → `"Steve wins 1 to 0"`
-- [ ] one round, Josh's card higher → `"Josh wins 1 to 0"`
+- [x] one round, Josh's card higher → `"Josh wins 1 to 0"`
 - [ ] one round, equal cards → `"Tie"`
 - [ ] ranking is not lexicographic: `'T'` beats `'9'`
 - [ ] README example: `['A','7','8']` vs `['K','5','9']` → `"Steve wins 2 to 1"`
