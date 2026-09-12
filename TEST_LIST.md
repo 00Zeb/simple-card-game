@@ -21,3 +21,10 @@ are discovered.
 - Items that already pass when written (equal cards, the rank-order boundary)
   are kept as *confirming* tests: they pin behaviour that a later refactor
   could break. They are committed on green, since there is no red to commit.
+
+## Refactor log
+
+- `rankOf` extracted so card comparison reads as ranks, not string indexes.
+- `scoreRounds` split from `formatResult` so scoring and output wording can
+  change independently. All nine tests green before and after.
+

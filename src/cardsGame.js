@@ -1,12 +1,16 @@
 const RANKS = '23456789TJQKA';
 
-function cardsGame(steveDeck, joshDeck) {
+function rankOf(card) {
+  return RANKS.indexOf(card);
+}
+
+function scoreRounds(steveDeck, joshDeck) {
   let steve = 0;
   let josh = 0;
 
   for (let i = 0; i < steveDeck.length; i++) {
-    const steveCard = RANKS.indexOf(steveDeck[i]);
-    const joshCard = RANKS.indexOf(joshDeck[i]);
+    const steveCard = rankOf(steveDeck[i]);
+    const joshCard = rankOf(joshDeck[i]);
 
     if (steveCard > joshCard) {
       steve++;
@@ -15,6 +19,10 @@ function cardsGame(steveDeck, joshDeck) {
     }
   }
 
+  return { steve, josh };
+}
+
+function formatResult(steve, josh) {
   if (steve > josh) {
     return `Steve wins ${steve} to ${josh}`;
   }
@@ -24,6 +32,11 @@ function cardsGame(steveDeck, joshDeck) {
   }
 
   return 'Tie';
+}
+
+function cardsGame(steveDeck, joshDeck) {
+  const { steve, josh } = scoreRounds(steveDeck, joshDeck);
+  return formatResult(steve, josh);
 }
 
 module.exports = cardsGame;
