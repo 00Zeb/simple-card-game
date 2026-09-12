@@ -12,9 +12,9 @@ are discovered.
 - [x] one round, equal cards → `"Tie"`
 - [x] ranking is not lexicographic: `'T'` beats `'9'`
 - [x] README example: `['A','7','8']` vs `['K','5','9']` → `"Steve wins 2 to 1"`
-- [ ] multi-round where Josh wins
-- [ ] equal scores over several rounds → `"Tie"`
-- [ ] full 13-card deck comparison
+- [x] multi-round where Josh wins
+- [x] equal scores over several rounds → `"Tie"`
+- [x] full 13-card deck comparison
 
 ## Notes
 
