@@ -12,4 +12,12 @@ describe('cardsGame', () => {
   it('awards the round to Josh when his card is higher', () => {
     expect(cardsGame(['K'], ['A'])).toBe('Josh wins 1 to 0');
   });
+
+  it('treats equal cards as a tie', () => {
+    expect(cardsGame(['A'], ['A'])).toBe('Tie');
+  });
+
+  it('ranks cards by value, not lexicographically', () => {
+    expect(cardsGame(['T'], ['9'])).toBe('Steve wins 1 to 0');
+  });
 });
