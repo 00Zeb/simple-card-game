@@ -20,4 +20,8 @@ describe('cardsGame', () => {
   it('ranks cards by value, not lexicographically', () => {
     expect(cardsGame(['T'], ['9'])).toBe('Steve wins 1 to 0');
   });
+
+  it('scores every round of the README example', () => {
+    expect(cardsGame(['A', '7', '8'], ['K', '5', '9'])).toBe('Steve wins 2 to 1');
+  });
 });
