@@ -1,15 +1,26 @@
 const RANKS = '23456789TJQKA';
 
 function cardsGame(steveDeck, joshDeck) {
-  const steve = RANKS.indexOf(steveDeck[0]);
-  const josh = RANKS.indexOf(joshDeck[0]);
+  let steve = 0;
+  let josh = 0;
+
+  for (let i = 0; i < steveDeck.length; i++) {
+    const steveCard = RANKS.indexOf(steveDeck[i]);
+    const joshCard = RANKS.indexOf(joshDeck[i]);
+
+    if (steveCard > joshCard) {
+      steve++;
+    } else if (joshCard > steveCard) {
+      josh++;
+    }
+  }
 
   if (steve > josh) {
-    return 'Steve wins 1 to 0';
+    return `Steve wins ${steve} to ${josh}`;
   }
 
   if (josh > steve) {
-    return 'Josh wins 1 to 0';
+    return `Josh wins ${josh} to ${steve}`;
   }
 
   return 'Tie';
