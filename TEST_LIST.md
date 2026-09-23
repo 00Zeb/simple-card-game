@@ -5,8 +5,8 @@ green. Order is "simplest valuable example first", then triangulate.
 
 ## To do
 
-- [ ] The full ranking 2..A orders every card correctly
-- [ ] Worked example from the README -> "Steve wins 2 to 1"
+_All listed examples are green._
+
 
 ## Done
 
@@ -17,6 +17,8 @@ green. Order is "simplest valuable example first", then triangulate.
 - [x] Two rounds, one win each -> "Tie" (scores decide, not the first round)
 - [x] Two rounds, Steve wins both -> "Steve wins 2 to 0" (score is counted, not hardcoded)
 - [x] Ace beats King -> "Steve wins 1 to 0" (rank order, not alphabetical order)
+- [x] The full ranking 2..A orders every card correctly (passed on arrival)
+- [x] Worked example from the README -> "Steve wins 2 to 1" (passed on arrival)
 
 ## Open questions / out of scope
 

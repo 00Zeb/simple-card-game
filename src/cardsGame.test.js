@@ -36,4 +36,8 @@ describe('cardsGame', () => {
 
     expect(cardsGame(higherCards, lowerCards)).toBe('Steve wins 12 to 0');
   });
+
+  it('plays the worked example from the README', () => {
+    expect(cardsGame(['A', '7', '8'], ['K', '5', '9'])).toBe('Steve wins 2 to 1');
+  });
 });
