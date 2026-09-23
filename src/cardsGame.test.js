@@ -16,4 +16,8 @@ describe('cardsGame', () => {
   it('gives nobody a point when the cards are identical', () => {
     expect(cardsGame(['5'], ['5'])).toBe('Tie');
   });
+
+  it('is a tie when both players win one round', () => {
+    expect(cardsGame(['3', '2'], ['2', '3'])).toBe('Tie');
+  });
 });
