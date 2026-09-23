@@ -11,11 +11,11 @@ function cardsGame(steve, josh) {
   }
 
   if (steveScore > joshScore) {
-    return 'Steve wins 1 to 0';
+    return `Steve wins ${steveScore} to ${joshScore}`;
   }
 
   if (joshScore > steveScore) {
-    return 'Josh wins 1 to 0';
+    return `Josh wins ${joshScore} to ${steveScore}`;
   }
 
   return 'Tie';
