@@ -5,7 +5,6 @@ green. Order is "simplest valuable example first", then triangulate.
 
 ## To do
 
-- [ ] Both decks empty -> "Tie"
 - [ ] One round, Steve's card is higher -> "Steve wins 1 to 0"
 - [ ] One round, Josh's card is higher -> "Josh wins 1 to 0"
 - [ ] One round, identical cards -> "Tie"
@@ -17,7 +16,7 @@ green. Order is "simplest valuable example first", then triangulate.
 
 ## Done
 
-_(nothing yet)_
+- [x] Both decks empty -> "Tie"
 
 ## Open questions / out of scope
 
