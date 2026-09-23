@@ -1,12 +1,15 @@
-const cardRanks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+const cardRanks = new Map(
+  ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
+    .map((card, rank) => [card, rank])
+);
 
 module.exports = function cardsGame(stevesDeck, joshsDeck) {
   let stevesScore = 0;
   let joshsScore = 0;
 
   for (let round = 0; round < stevesDeck.length; round += 1) {
-    const stevesCardRank = cardRanks.indexOf(stevesDeck[round]);
-    const joshsCardRank = cardRanks.indexOf(joshsDeck[round]);
+    const stevesCardRank = cardRanks.get(stevesDeck[round]) ?? -1;
+    const joshsCardRank = cardRanks.get(joshsDeck[round]) ?? -1;
 
     if (stevesCardRank > joshsCardRank) {
       stevesScore += 1;
