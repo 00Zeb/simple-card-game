@@ -12,4 +12,8 @@ describe('cardsGame', () => {
   it('gives Josh the point when his card is higher', () => {
     expect(cardsGame(['2'], ['3'])).toBe('Josh wins 1 to 0');
   });
+
+  it('gives nobody a point when the cards are identical', () => {
+    expect(cardsGame(['5'], ['5'])).toBe('Tie');
+  });
 });
