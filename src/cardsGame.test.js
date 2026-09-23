@@ -28,4 +28,12 @@ describe('cardsGame', () => {
   it('ranks an Ace above a King', () => {
     expect(cardsGame(['A'], ['K'])).toBe('Steve wins 1 to 0');
   });
+
+  it('orders every card of the ranking, from 2 up to Ace', () => {
+    const ranking = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+    const higherCards = ranking.slice(1);
+    const lowerCards = ranking.slice(0, -1);
+
+    expect(cardsGame(higherCards, lowerCards)).toBe('Steve wins 12 to 0');
+  });
 });
