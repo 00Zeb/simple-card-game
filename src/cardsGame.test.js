@@ -24,4 +24,8 @@ describe('cardsGame', () => {
   it('reports the actual scores when Steve wins both rounds', () => {
     expect(cardsGame(['3', '4'], ['2', '3'])).toBe('Steve wins 2 to 0');
   });
+
+  it('ranks an Ace above a King', () => {
+    expect(cardsGame(['A'], ['K'])).toBe('Steve wins 1 to 0');
+  });
 });
