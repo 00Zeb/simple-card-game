@@ -1,13 +1,20 @@
 function cardsGame(steve, josh) {
-  if (steve.length === 0) {
-    return 'Tie';
+  let steveScore = 0;
+  let joshScore = 0;
+
+  for (let round = 0; round < steve.length; round++) {
+    if (steve[round] > josh[round]) {
+      steveScore++;
+    } else if (josh[round] > steve[round]) {
+      joshScore++;
+    }
   }
 
-  if (steve[0] > josh[0]) {
+  if (steveScore > joshScore) {
     return 'Steve wins 1 to 0';
   }
 
-  if (josh[0] > steve[0]) {
+  if (joshScore > steveScore) {
     return 'Josh wins 1 to 0';
   }
 
