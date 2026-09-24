@@ -4,7 +4,7 @@
 
 **What it responds to:** Birgitta Böckeler, [*TDD inside the agent loop: theater or actual value?*](https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html), martinfowler.com, 10 Aug 2026. I read the article too, so the study facts below come from the source, not from the video's account of it.
 
-**Method:** the transcript comes from YouTube's auto-captions, fetched with `yt-dlp`, so names are sometimes garbled. The captions say "Emily Bates" (Emily Bache), "Summon/Saman" (Samman), "genetic AI" (agentic AI) and "Yvette Erdmann" (Ivett Ördög, who is named in the article). I've corrected these. One name ("Nizar Selanda") I couldn't confirm.
+**Method:** the transcript comes from YouTube's auto-captions, fetched with `yt-dlp`, so names are sometimes garbled. The captions say "Emily Bates" (Emily Bache), "Summon/Saman" (Samman), "genetic AI" (agentic AI) and "Yvette Erdmann" (Ivett Ördög, who is named in the article). I've corrected these. "Nizar Selanda" is **Nizar Selander** ([@nizos](https://github.com/nizos)), author of TDD Guard and the newer [probity](https://github.com/nizos/probity).
 
 ---
 
@@ -18,7 +18,7 @@
 
 1. **No test list (4:24).** Canon TDD's first step is a test list, updated on every loop. Böckeler's prompt leaves it out. In the experiment where TDD did worst, the analysis found the agent *treated the tests as the only spec*: *"Unlisted but required behaviour simply never got written."* Emily believes a test-list step would have prevented that.
 2. **A weak refactoring step (5:32).** Halfway through, Böckeler strengthened the prompt with specific code smells, and code quality improved. Emily says prose isn't enough. She wants deterministic sensors in the harness (**"habit hooks"**, from her earlier video with Ivett Ördög): something like a linter that detects a smell and injects specific guidance for fixing it.
-3. **The setup isn't realistic (7:46–9:00).** Practitioners use far more sophisticated harnesses. Emily ran a kata in the Samman technical-coaching community and has **8 fully worked solutions showing TDD harnesses**. *"All of them are doing something more sophisticated than two paragraphs in a prompt."*
+3. **The setup isn't realistic (7:46–9:00).** Practitioners use far more sophisticated harnesses. Emily ran a kata in the Samman technical-coaching community and has **8 fully worked solutions showing TDD harnesses**. She has already covered two of them on the channel, one from Nizar Selander. *"All of them are doing something more sophisticated than two paragraphs in a prompt."*
 
 **What she concedes (7:12).** The article's list of TDD benefits is valuable framing. Böckeler *"is not finding really good evidence in favour of TDD, but she hasn't really proved that the results are worse either"*. TDD *"does seem to cost more tokens"*. Emily's next step is to understand what practitioners actually do before designing a better evaluation, and she invites researchers with token budgets to test better prompts and harnesses. The video ends with a plug for her webinar, *"From Traditional TDD to AI-Assisted, Without Losing the Plot"*.
 
