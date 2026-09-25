@@ -10,19 +10,19 @@
 
 ## 1. What the video says
 
-**The setup (0:00–1:40).** Emily has done TDD for 20+ years. Böckeler's article concluded there was *"no discernible difference"* between agents told to do TDD and agents not told to, and that TDD isn't worth the tokens. Emily read an early copy, was surprised, studied it, and is *"not convinced"*. She still recommends the article and credits it as the only formal evaluation of agent TDD she knows of.
+**The setup (0:00–1:40).** Emily has done TDD for 20+ years. Böckeler's article concluded there was *"no discernible difference"* between agents told to do TDD and agents not told to, and that TDD isn't worth the tokens. Emily read an early copy, was surprised, studied it, and is *"not convinced"*. Emily still recommends the article and credits it as the only formal evaluation of agent TDD Emily knows of.
 
-**The study, as Emily describes it (2:45–4:24).** An agent runs in a loop and implements a whole feature with no human intervention. Some runs got a TDD prompt, some didn't. The solutions were analysed for spec compliance, test coverage and code quality, and the TDD runs didn't do better. Emily's first worry was that the TDD prompt is brief: *"just a couple of paragraphs of extra text"*, far less than practitioners use. She accepts that the session logs show the agents really did write tests first in small steps.
+**The study, as Emily describes it (2:45–4:24).** An agent runs in a loop and implements a whole feature with no human intervention. Some runs got a TDD prompt, some didn't. The solutions were analysed for spec compliance, test coverage and code quality, and the TDD runs didn't do better. Emily's first worry was that the TDD prompt is brief: *"just a couple of paragraphs of extra text"*, far less than practitioners use. Emily accepts that the session logs show the agents really did write tests first in small steps.
 
-**Her three objections:**
+**Emily's three objections:**
 
 1. **No test list (4:24).** Canon TDD's first step is a test list, updated on every loop. Böckeler's prompt leaves it out. In the experiment where TDD did worst, the analysis found the agent *treated the tests as the only spec*: *"Unlisted but required behaviour simply never got written."* Emily believes a test-list step would have prevented that.
-2. **A weak refactoring step (5:32).** Halfway through, Böckeler strengthened the prompt with specific code smells, and code quality improved. Emily says prose isn't enough. She wants deterministic sensors in the harness (**"habit hooks"**, from her earlier video with Ivett Ördög): something like a linter that detects a smell and injects specific guidance for fixing it.
-3. **The setup isn't realistic (7:46–9:00).** Practitioners use far more sophisticated harnesses. Emily ran a kata in the Samman technical-coaching community and has **8 fully worked solutions showing TDD harnesses**. She has already covered two of them on the channel, one from Nizar Selander. *"All of them are doing something more sophisticated than two paragraphs in a prompt."*
+2. **A weak refactoring step (5:32).** Halfway through, Böckeler strengthened the prompt with specific code smells, and code quality improved. Emily says prose isn't enough. Emily wants deterministic sensors in the harness (**"habit hooks"**, from Emily's earlier video with Ivett Ördög): something like a linter that detects a smell and injects specific guidance for fixing it.
+3. **The setup isn't realistic (7:46–9:00).** Practitioners use far more sophisticated harnesses. Emily ran a kata in the Samman technical-coaching community and has **8 fully worked solutions showing TDD harnesses**. Emily has already covered two of them on the channel, one from Nizar Selander. *"All of them are doing something more sophisticated than two paragraphs in a prompt."*
 
-**What she concedes (7:12).** The article's list of TDD benefits is valuable framing. Böckeler *"is not finding really good evidence in favour of TDD, but she hasn't really proved that the results are worse either"*. TDD *"does seem to cost more tokens"*. Emily's next step is to understand what practitioners actually do before designing a better evaluation, and she invites researchers with token budgets to test better prompts and harnesses. The video ends with a plug for her webinar, *"From Traditional TDD to AI-Assisted, Without Losing the Plot"*.
+**What Emily concedes (7:12).** The article's list of TDD benefits is valuable framing. Böckeler *"is not finding really good evidence in favour of TDD, but she hasn't really proved that the results are worse either"*. TDD *"does seem to cost more tokens"*. Emily's next step is to understand what practitioners actually do before designing a better evaluation, and Emily invites researchers with token budgets to test better prompts and harnesses. The video ends with a plug for Emily's webinar, *"From Traditional TDD to AI-Assisted, Without Losing the Plot"*.
 
-**Her position in one line:** the question *"theater or actual value?"* is still open, and the study tested a prompt, not TDD.
+**Emily's position in one line:** the question *"theater or actual value?"* is still open, and the study tested a prompt, not TDD.
 
 ### What the article actually found
 

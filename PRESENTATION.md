@@ -2,7 +2,7 @@
 
 Analysis of the `llm-*` branches, the no-TDD baseline and the 2016 human run.
 Every number below was measured from the git history or by re-running the code
-(Sept 23 2026). Where something is inference, it says so.
+(23–25 Sept 2026). Costs come from the Claude Code session transcripts, priced at list rates. Where something is inference, it says so.
 
 ---
 
@@ -17,8 +17,9 @@ TDD has always been two things sold together:
 
 - **The agent with the most disciplined TDD history shipped a wrong answer.** GLM 5.3 Flash has 7 of 7 genuine red→green cycles (verified by replay), every commit is correctly labelled, and it wrote a thoughtful LESSONS.md. Its code returns `"Josh wins 1 to 2"` when Josh wins 2–1. Its own tests say that is correct.
 - **The agent with no TDD at all was correct in about 30 seconds.** Opus 5.5 without TDD passes the same independent acceptance suite as every correct TDD run. Its 7 tests caught 7 of 9 subtle planted bugs, as many as Astra's 49-case suite.
-- **The design did not emerge from the tests.** All nine JavaScript implementations, TDD or not, have the same shape: a rank string, `indexOf`, two counters and a three-way return. Only the human 2016 run produced a design the others don't have (an injected ranking, with the class extracted in the refactor step). That refactor also quietly removed Q, K and A from the system while every test stayed green (§2.8).
-- **Red is mostly ceremony for an agent.** Across the six TDD agents, 26 of 57 tests (46%) passed as soon as they were written. The agent already knew the answer.
+- **The design did not emerge from the tests.** All ten JavaScript implementations, TDD or not, have the same shape: a rank string, `indexOf`, two counters and a three-way return. Only the human 2016 run produced a design the others don't have (an injected ranking, with the class extracted in the refactor step). That refactor also quietly removed Q, K and A from the system while every test stayed green (§2.8).
+- **Red is mostly ceremony for an agent.** Across the six agents told to do TDD by prompt, 26 of 57 tests (46%) passed as soon as they were written. The agent already knew the answer.
+- **Enforcing TDD with a harness bought adherence, not a better result.** With probity blocking every non-TDD write, Opus 5.5 did the most faithful TDD in the repo: 11 genuine reds out of 12 tests, 4 real refactors. It was also correct, as every frontier run was. It cost $3.54 against $0.27 for the no-TDD run, took 10 m 48 s against 29 s, and its tests caught fewer planted bugs (§2.9).
 - **The reflections are unreliable.** One copies another model's reflection almost word for word. One claims TDD caught a formatting bug that is still in its code. One cites commit hashes that don't exist.
 
 What survives is **the test list as a contract a human reviews, plus an executable oracle that is independent of the implementation.** The micro-cycle, the commit-per-phase and "tests drive the design" become optional, or become the human's job.
@@ -31,8 +32,9 @@ What survives is **the test list as a contract a human reviews, plus an executab
 |---|---|---|---|---|---|---|---|---|
 | `20160309_bth` | You, 2016 (Java), live in front of an audience | 22 m 43 s | 16 | **6 (replayed, all genuine)** | 4 methods, 6 asserts | ~30 | ✅ | n/a (older p1/p2/draw variant); final code ranks A below 2, see §2.8 |
 | `llm-no-tdd-opus5.5` | Opus 5.5, **no TDD** | ~30 s (your timing) | 1 | 0 | 7 | 15 | ✅ | ✅ 8/8 |
-| `llm-claude-opus` | Claude Opus | 3 m 47 s | 17 | 4 | 11 | 31 | ✅ | ✅ 8/8 |
-| `llm-claude-opus5` | Claude Opus 5 | 4 m 18 s | 20 | 7 | 9 | 22 | ✅ | ✅ 8/8 |
+| `llm-claude-opus` | Opus 5, run 1 (7 Sep)⁴ | 3 m 47 s | 17 | 4 | 11 | 31 | ✅ | ✅ 8/8 |
+| `llm-claude-opus5` | Opus 5, run 2 (23 Sep)⁴ | 4 m 18 s | 20 | 7 | 9 | 22 | ✅ | ✅ 8/8 |
+| `llm-probity-opus5.5` | Opus 5.5, **TDD enforced by probity** (headless) | 10 m 48 s | 29 | **11 of 12 tests** | 12 | 20 | ✅ | ✅ 8/8 |
 | `llm-astra` | Astra | 7 m 42 s code (27 m incl. guidance doc) | 45 (**22 empty**) | 5 | 14 steps / 49 cases | 22 | ✅ | ✅ 8/8 |
 | `llm-local-qwen` | Qwen (local) | 8 m 57 s | 10 | 4 | 7 | 22 | ✅ | ✅ 8/8 |
 | `llm-deepseek4.1flash` | DeepSeek 4.1 Flash | 9 m 51 s | 14 | 4 | 9 | 32 | ✅ | ✅ 8/8 |
@@ -40,8 +42,9 @@ What survives is **the test list as a contract a human reviews, plus an executab
 | `llm-local-gemma4` | Gemma 4 (local) | n/a: refused to commit, you committed for it | 1 | 0 | 5 | 27 | ❌ 1 failing | ❌ **5/8** |
 | `seb` | Unrecorded agent, Mar 2026 | 62 s | 5 | **0** (labelled "RED/GREEN") | 10 | 24 | ✅ | ✅ 8/8 |
 | `llm-opus5.5` | Opus 5.5, TDD | **empty branch** (reserved for the live demo?) | 0 | | | | | |
+| `llm-tdd-control-opus5.5` | Opus 5.5, TDD by prompt, no probity (the control for §2.9) | **prepared, not run yet** | 0 | | | | | |
 
-¹ Time from the agent's first commit to its last. ² I checked out every `red:` commit and ran Jest. A "missing module" failure on the first test counts as a legitimate red. Every agent that labelled a commit red was honest about it. ³ An acceptance suite written independently of all agents: the README example, a Josh win with the winner's score first, a shutout, non-lexicographic ranks, empty decks, no input mutation, and 1000 random games against a reference implementation. See Appendix A.
+¹ Time from the agent's first commit to its last. ² I checked out every `red:` commit and ran Jest. A "missing module" failure on the first test counts as a legitimate red. Every agent that labelled a commit red was honest about it. ³ An acceptance suite written independently of all agents: the README example, a Josh win with the winner's score first, a shutout, non-lexicographic ranks, empty decks, no input mutation, and 1000 random games against a reference implementation. See Appendix A. ⁴ The session transcripts show that both Claude branches ran on Opus 5. In the rest of this document, *Opus* means run 1 and *Opus 5* means run 2.
 
 ### Suites cross-run against implementations and planted bugs
 
@@ -65,6 +68,7 @@ A second, harder round used nine subtle planted bugs:
 | Astra | 7/9 | input mutation, only first 3 rounds counted |
 | DeepSeek | 7/9 | tie scores both, input mutation |
 | **No-TDD (30 s)** | **7/9** | tie scores both, input mutation |
+| Probity (Opus 5.5) | 6/9 | Q and K swapped, input mutation, only first 3 rounds counted |
 | Opus 5 | 5/9 | Josh hardcoded "1 to 0", Josh's loser always 0, tie scores both, input mutation |
 | `seb` | 5/9 | |
 | Qwen | 3/9 | |
@@ -72,6 +76,8 @@ A second, harder round used nine subtle planted bugs:
 No suite tests that the input decks are left unchanged. Astra's own plan said *"Read decks without modifying them"*, but it wrote no test for it.
 
 **The purest TDD rhythm produced the weakest suite among the frontier models' TDD runs.** Opus 5 had the most genuine reds and the most minimal steps, and caught 5/9. The strongest suite came from Opus, the run that jumped ahead of its tests most. Minimal steps choose examples that are *enough to drive the code*, which is not the same as *enough to protect it*. That's n = 1, so present it as an observation, not a law.
+
+**The same model varies more between runs than the process varies anything.** Opus runs 1 and 2 are the same model with the same README, and their suites catch 8/9 and 5/9. That spread is bigger than the difference probity made (6/9). Any claim about one process beating another needs several runs per arm.
 - **GLM's suite** rejects every correct implementation and accepts Gemma's broken one, since both share the misreading.
 - **Gemma's suite** rejects everything, because one expectation has the wrong arithmetic (`"Josh wins 2 to 0"` for a 3–0 game).
 
@@ -79,7 +85,7 @@ No suite tests that the input decks are left unchanged. Astra's own plan said *"
 
 ### Confounds to state openly on a slide (this is n = 1, not science)
 
-- **Each model ran once**, in different harnesses, on different days.
+- **Each model ran once**, in different harnesses, on different days. The two Opus 5 runs show how much that matters: same model, same README, suites catching 8/9 and 5/9.
 - **The instructions changed during the experiment.** GLM ran at `bd4d6ec`, before the reflection instruction and before "don't question the instructions". Astra ran from `78f8c29` with a plan agreed in dialogue with you (`PLAN.md`, `TASK_INSTRUCTIONS.md`). The no-TDD run used a README with the TDD lines removed.
 - **"This is a test to evaluate your TDD skills – don't question the instructions"** frames the task as an exam set by a TDD examiner. It probably pushed every reflection toward "Yes, but…". It may also have discouraged asking what `x to y` means.
 - **The working directories weren't clean.** Opus 5 committed `TDD - Manual 2.0.mobi` and `TDD_SCORESHEET.md` inside its green commit `c73d1fc`. Its vocabulary echoes the scoresheet ("simplest valuable example first, then triangulate", "a fake red is worse than an honest regression test"), so it may have optimised for the rubric. That's inference; check the transcript.
@@ -129,22 +135,36 @@ Opus 5 predicted exactly the failure GLM then had.
 
 **Every TDD agent that hit a pass-on-write test landed on the same practice:** label tests that pass on write as "confirming/coverage" instead of faking a red. Beck's rule ("don't write code without a failing test") gets quietly rewritten as "don't claim a red you didn't see". That's honest, and it's also an admission that the red step carried no information for those tests.
 
+**Under probity the numbers flip, for a revealing reason:** 11 of 12 tests went red because the agent *dropped* the tests that couldn't. It removed `'T'` vs `'9'`, identical single cards and the rest of the face-card order from its list, since they would pass on write. That's why its suite misses a Q/K swap (§2.9).
+
 ### 2.3 Tests did not drive the design
 
-All nine JS solutions converge on the same code:
+All ten JS solutions converge on the same code:
 `RANKS = '23456789TJQKA'` (or an array), `indexOf`, two counters (`for`, `forEach`, `reduce` or `filter`), then `>` / `<` / `'Tie'`.
 
 The TDD runs added *named* helpers (`rankOf`, `scoreRounds`, `formatResult`, `roundsWon`) in refactor steps. That is naming and tidying, not discovery. Opus: *"An agent … already knows where the code is going."* GLM: *"I knew the final shape from the start."*
 
 The only structurally different solution is yours from 2016. Code grew inside the test class ("TDD as if you meant it"), the final refactor extracted `CardGame`, and the ranking became injected data. Whether that design is *better* is debatable: the extraction also moved the ranking out of production code (§2.8). It is still the one example of design emerging from the process.
 
-### 2.4 TDD costs 7–25× more time on this problem, for no quality gain
+### 2.4 TDD costs 7–25× more time and 8–13× more money on this problem, for no quality gain
 
 - **Wall clock:** 3 m 47 s to 13 m 08 s with TDD, against ~30 s without.
 - **Commits:** 10–45 with TDD, against 1 without.
 - **Production code:** 14–32 LOC in every run.
-- **Tokens:** none of the agents could measure their own usage. Opus estimated ~70k. Opus 5 estimated "low hundreds of thousands" of input tokens across ~25 turns, because every red/green round trip resends the full context. Put the real figures from `/cost` or the provider dashboards on the slide if you have them.
 - **The agents' own framing:** *"It scales with the ceremony, not with the difficulty"* (Opus).
+
+**Money, measured.** None of the agents could see their own usage, but Claude Code's session transcripts record every API response. At list prices:
+
+| Run | Model | Time | API calls | Cost | Planted bugs caught |
+|---|---|---|---|---|---|
+| No TDD | Opus 5.5 | 29 s | 5 | **$0.27** | 7/9 |
+| TDD by prompt, run 1 | Opus 5 | 3 m 47 s | 38 | $2.07 | 8/9 |
+| TDD by prompt, run 2 | Opus 5 | 4 m 18 s | 48 | $2.72 | 5/9 |
+| TDD enforced by probity | Opus 5.5 | 10 m 48 s | 83 | **$3.54** ($2.75 agent + $0.79 validator) | 6/9 |
+
+Most of the cost is TDD itself: prompting for it already costs 8–10× the no-TDD run, because every red/green round trip resends the whole context. Probity adds another 1.3–1.7×. Opus 5 costs $5/$25 per million tokens and Opus 5.5 $4/$20, so a TDD-by-prompt run on Opus 5.5 would be about a fifth cheaper than the Opus 5 figures. The control run will show exactly.
+
+**In absolute terms the money is trivial** next to an hour of developer time. The argument against the ceremony isn't the price; it's that nothing measurable came back for it.
 
 ### 2.5 Weak models don't get rescued by the process
 
@@ -220,21 +240,23 @@ All tests stayed green, and neither you nor the audience noticed, because no tes
 
 **Keeping the injection point while closing the gap:** add `CardGame.standard()` (or a no-arg constructor) with the full ranking and one test that uses it (A beats K). You could also split the finale into two green steps, "extract class" and then "introduce parameter", which shows small refactoring steps as well.
 
-#### Scored with your TDD_SCORESHEET rubric, against the two best LLM runs
+#### Scored with your TDD_SCORESHEET rubric, against the best LLM runs
 
-These are the re-scored figures, after the harder planted-bug round in §1 exposed gaps in Opus 5's suite.
+These are the re-scored figures, after the harder planted-bug round in §1 exposed gaps in Opus 5's suite. The probity column was added after that run (§2.9).
 
-| Category (max) | You, 2016 | Opus 5 | Astra | Notes |
-|---|---|---|---|---|
-| Test first (30) | 30 | 29 | 27 | All three have honest reds for the right reason. Astra's are the only *reported* ones: the Jest output is pasted into every commit body. Opus 5's `d5188a8` and Astra's step 5 both implemented behaviour no failing test asked for; Astra's step 5 did more of it. |
-| Minimal green (20) | 19 | 19 | 16 | Astra's step-5 green added Josh's scoring, both-score reporting and ties by equal totals for a Steve 2–0 test. That made its next five planned steps pass on write. |
-| Progression (15) | 12 | 11 | 12 | Astra's examples are the best chosen: winner's score first, tied rounds inside a game, J vs T, every rank in both directions. But its list was fixed up front and not adapted after step 5. Opus 5 skipped a Josh multi-round win and ties inside a game. You have no Q/K/A. |
-| Test quality (15) | 9 | 11 | 13 | Astra has the best names in the repo ("awards Josh a point and reports his score first") and one assert per test, catching 7/9. Opus 5 has good names but catches 5/9. You have several asserts per method, and the ranking lives in the fixture. |
-| Refactoring (10) | 7 | 8 | 8 | Both LLMs made one clean refactor on simple code. Astra's 22 empty checkpoints are noise but not penalised. |
-| Final quality (10) | 6 | 7 | 9 | Your code ranks A below 2. Opus 5 has weak regression coverage and committed your `.mobi` and scoresheet. Astra is correct with strong coverage, but its own "don't modify decks" rule is untested. |
-| **Total** | **83** | **85** | **85** | |
+| Category (max) | You, 2016 | Opus 5 | Astra | Probity | Notes |
+|---|---|---|---|---|---|
+| Test first (30) | 30 | 29 | 27 | 30 | All three have honest reds for the right reason. Astra's are the only *reported* ones: the Jest output is pasted into every commit body. Opus 5's `d5188a8` and Astra's step 5 both implemented behaviour no failing test asked for; Astra's step 5 did more of it. |
+| Minimal green (20) | 19 | 19 | 16 | 18 | Astra's step-5 green added Josh's scoring, both-score reporting and ties by equal totals for a Steve 2–0 test. That made its next five planned steps pass on write. |
+| Progression (15) | 12 | 11 | 12 | 13 | Astra's examples are the best chosen: winner's score first, tied rounds inside a game, J vs T, every rank in both directions. But its list was fixed up front and not adapted after step 5. Opus 5 skipped a Josh multi-round win and ties inside a game. You have no Q/K/A. |
+| Test quality (15) | 9 | 11 | 13 | 12 | Astra has the best names in the repo ("awards Josh a point and reports his score first") and one assert per test, catching 7/9. Opus 5 has good names but catches 5/9. You have several asserts per method, and the ranking lives in the fixture. |
+| Refactoring (10) | 7 | 8 | 8 | 9 | Both LLMs made one clean refactor on simple code. Astra's 22 empty checkpoints are noise but not penalised. |
+| Final quality (10) | 6 | 7 | 9 | 10 | Your code ranks A below 2. Opus 5 has weak regression coverage and committed your `.mobi` and scoresheet. Astra is correct with strong coverage, but its own "don't modify decks" rule is untested. |
+| **Total** | **83** | **85** | **85** | **92** | |
 
-**So did an LLM do better?** Only by a couple of points, and the two best runs are good at different things:
+**The probity run scores highest, and that should make you suspicious of the rubric rather than impressed by the run.** The rubric measures TDD process, which is exactly what probity enforces, so a high score is close to guaranteed. Probity lost points only where enforcement backfired: a minimal-green step that hid a bug, and dropped tests that left a Q/K swap uncaught (§2.9).
+
+**Among the runs without enforcement, did an LLM do better?** Only by a couple of points, and the two best runs are good at different things:
 - **Opus 5 has the best rhythm.** It has the most genuine reds, the most minimal steps, and commit messages that read as a narrative ("red: identical cards award no point").
 - **Astra is the best run overall:**
   - It's the only run where a human reviewed and agreed the test list before any code was written (`PLAN.md`, `TASK_INSTRUCTIONS.md`).
@@ -256,6 +278,39 @@ Neither gave a better *demonstration* than yours, and the comparison isn't fair 
 
 **Talk point:** *an agent can now produce a textbook TDD history in four minutes, so a TDD history no longer proves anyone understood anything. A TDD demo's job shifts from showing the rhythm to showing the judgement: which example comes next, and what's still missing.*
 
+### 2.9 Enforcing TDD with a harness: the probity run
+
+[Probity](https://github.com/nizos/probity), by Nizar Selander, is a `PreToolUse` hook for Claude Code, Codex and Copilot CLI. Its `enforceTdd()` rule sends every file write under `src/` to an AI validator. The validator blocks the write unless the transcript shows a failing test that the write addresses, and the write is the minimum needed. It's exactly the "TDD by harness" that Emily Bache says Böckeler's study lacked.
+
+**Setup:** branch `llm-probity-opus5.5`, setup commit `b83ded6`. Probity 1.10.1 with its quick-start config unchanged. Opus 5.5 at `xhigh` effort, the same README, and a prompt that doesn't mention probity. It ran headless in an isolated single-branch clone, so it couldn't see other branches.
+
+**What it produced:**
+- 11 genuine reds out of 12 tests, all replayed, each with exactly one failing test. The one test that passed on write is honestly labelled `test:`.
+- 4 real refactors.
+- A test list with dropped items and the reasons for dropping them.
+- Correct code: 8/8 on the acceptance suite, 6/9 planted bugs caught.
+- The most accurate reflection in the repo: every claim I checked against the logs held, except that it underestimated its own output tokens.
+
+**What probity did:**
+- **Blocked 13 of 59 writes. 4 of the blocks were useful:** forcing a fake out before the next test, rejecting two over-reaching greens, and rejecting an unrelated change.
+- **9 were false positives.** Six blocked *writing* a new test because it hadn't been "observed failing", which can't happen before the test exists. Three contradicted their own reasoning: the text ends *"This is actually a pass"*, yet the verdict was block.
+- **Retrying worked.** The agent resent 7 blocked edits unchanged; 5 passed. In the agent's words, that *"quietly teaches an agent that retrying gets past the guard"*.
+- **Cost:** 41 validator calls at about 3.5 s each (2 min 25 s) and $0.79, about 22% of the run's $3.54.
+
+**Where enforcement backfired:**
+- **Minimal steps hid a bug.** The guard rejected the general scoring loop as over-implementation. The agent then wrote code that picked the winner by comparing the *first cards*, and it passed 9 tests, because in every test so far the round-1 winner also won overall. The agent caught it by *reading* its code during a refactor, not with a test: *"TDD makes such bugs cheap to expose, but it doesn't find them for you."*
+- **"Every test must go red" removed protective tests.** The agent dropped the rest of the face-card order because it would pass on write, so a Q/K swap goes uncaught.
+- **The guard is stricter than Beck's TDD.** *TDD by Example* includes *Obvious Implementation*: when you know what to type, type it. Probity always enforces the smallest step.
+
+**What it shows:** Emily Bache is right that a harness improves adherence, though that's close to guaranteed when the harness blocks every non-TDD write. It didn't improve the result. Compared with the no-TDD run, the code is the same shape, the tests catch fewer planted bugs, and it cost 13× as much and took 22× as long.
+
+**Limits, stated before anyone asks:**
+- **One run.** Given the 8/9 vs 5/9 spread between two Opus 5 runs, one run proves little.
+- **No control yet.** `llm-tdd-control-opus5.5` (same model and settings, no probity) is prepared but not run.
+- **My allowlist interfered.** It refused three commands, including the agent's attempt at a hand-made mutation check.
+- **Unattended, so Selander's main claim went unmeasured.** Selander presents probity as reducing hand-holding for a human working interactively with an agent that keeps skipping steps. This run was unattended.
+- **Only the AI-judged rule was tested.** Probity also has deterministic rules, such as `requireCommand` (tests before commit), that cost no tokens. They weren't tested.
+
 ---
 
 ## 3. What each agent concluded
@@ -267,6 +322,7 @@ Neither gave a better *demonstration* than yours, and the comparison isn't fair 
 | DeepSeek | Same as Opus (literally) | Chose A vs K as the first test to force ranking immediately | Reflection is largely copied |
 | GLM | "Yes, but not the strictest form": test list first, commit on green | *"TDD created a bug and then caught it."* | Shipped the misreading its own tests encode |
 | Astra | Use TDD where being wrong is hard to notice; separate the agent's bill from total engineering cost | *"Do not weaken working code to manufacture a failure."* Cites real research | 22 empty commits (by agreed plan) |
+| Probity (Opus 5.5) | TDD for verification and an audit trail, not design; prefer deterministic guardrails over AI-judged ones | *"TDD makes such bugs cheap to expose, but it doesn't find them for you."* | Underestimated its own output (said 20–30k tokens; actual 48.7k) |
 | Qwen | (no reflection) | n/a | Stale list, invented hashes |
 | Gemma | (no reflection) | n/a | Wrong test and wrong code |
 
@@ -286,6 +342,7 @@ Every agent said **the value grows with the size of the problem and the codebase
 | **Proof a test can fail** | A test that has never failed is an unproven test | Opus 5's hand mutation, Astra's pasted red output. Mutation testing after the fact gives this without the ritual. |
 | **Refactor only on green** | Agents love restructuring; a green suite makes it cheap and safe | Uneventful refactors in every run |
 | **Bug fix = reproduce with a failing test first** | This is where red actually carries information | (outside the kata, but every agent agreed) |
+| **Enforce with deterministic checks, not prose or an AI judge** | Prose instructions drift, and an AI judge makes mistakes. "A failing test was observed before this production edit" or "tests ran before this commit" can be checked exactly, for free. | Probity's AI judge: 9 of 13 blocks false positives, and identical retries usually passed (§2.9). Probity's own `requireCommand` rule costs no tokens. |
 
 ### Leave behind, or keep only for teaching
 
@@ -293,7 +350,8 @@ Every agent said **the value grows with the size of the problem and the codebase
 |---|---|---|
 | **Fake it till you make it / minimal green** | It guards against a human's premature generalisation. The agent already knows the target, so it just manufactures intermediate bugs. | GLM: *"TDD created a bug and then caught it"*; Opus used `indexOf` early anyway |
 | **Commit on red, green and refactor separately** | The history becomes a performance. It's cheap to produce and easy to fake, so it's weak evidence unless someone replays it. | 22 of 45 Astra commits are empty; `seb` has "RED/GREEN" labels with no red |
-| **TDD as the agent's design tool** | The design is already in the weights | Nine implementations, one shape |
+| **TDD as the agent's design tool** | The design is already in the weights | Ten implementations, one shape |
+| **Forcing the smallest step every time** | Beck's own TDD lets you take bigger steps when confident (*Obvious Implementation*). An agent's confidence isn't calibrated, so check the *outcome* (independent tests, mutation) rather than policing step size. | Probity's minimal-step pressure produced a bug that passed 9 tests, and removed tests that couldn't go red (§2.9) |
 | **TDD as fear, flow and boredom management** | The agent has none of these; the psychology was always for the human | (Beck: TDD as "a way of managing fear during programming") |
 | **Process compliance as a proxy for quality** | Perfect process, wrong product | GLM |
 | **Beck's rule against turning the whole test list into concrete tests up front** | The reasons were human: rework if the first green changes your mind, and the gloom of waiting until test #6 before anything passes. An agent doesn't get bored and rewrites tests in seconds, so it can write the list as skipped tests and un-skip them one at a time. The rework still happens, just cheaply. | GLM `0512a46`: 7 skipped tests, 7 genuine reds; one wrong piece of test data fixed in green commit `9eee781` |
@@ -311,17 +369,67 @@ Every agent said **the value grows with the size of the problem and the codebase
 
 ---
 
-## 5. Objections the audience will raise
+## 5. Perspectives: where this talk stands
+
+### The talk's position, sharpened
+
+> *TDD bundled a way of specifying behaviour with countermeasures for human limitations. Agents have different limitations. Keep the specification part: a reviewed test list, tests independent of the code, proof they can fail. Enforce it with cheap deterministic checks, let the agent choose its step size, and spend its speed on verifying more, not on more ceremony.*
+
+**The core argument: you and the agent don't share limitations, so you shouldn't share the whole process.** It only works if you name *both* sides. Otherwise it sounds like "the agent is better, so drop the discipline".
+
+| | Your limitations → the TDD practice that counters them | The agent's limitations → what counters them |
+|---|---|---|
+| Working memory | Tiny steps, one test at a time | The agent holds the whole problem, so tiny steps don't help it |
+| Fear, fatigue, boredom | The red-green rhythm (Beck: "managing fear") | The agent feels none of these |
+| Premature design | Fake it, then triangulate | The design is already in the weights (Ördög: requirements map straight to code) |
+| Confident false reports | | "Never claim green without a run"; replay the evidence (§2.6) |
+| Fabricated or copied evidence | | Verify its claims like code: Qwen's invented hashes, DeepSeek's copied reflection |
+| Same-author blind spots | (you have this too: Q/K/A in 2016) | Tests independent of the code; a human-reviewed test list (GLM) |
+| Losing state when context is compacted or a session ends | | The test list as external memory |
+| Drift in long sessions, unrequested extras | | Deterministic hooks; the test list as a scope fence |
+
+**Some limitations are shared:** behaviour nobody listed goes unprotected, by a human (2016 Q/K/A) and by an agent (probity's first-card bug). The practices that counter shared limitations belong to both of you.
+
+**Speed and parallelism are real agent strengths, but they move the bottleneck.** They shift it to verification, and to *your understanding*. TDD used to build the human's understanding step by step. A commenter under Emily Bache's video: *"the biggest advantage of TDD has always been how it makes me confident that I understand what the code does."* Five parallel agents take that away, so say where understanding comes from now: reviewing the test list and the acceptance examples. Parallelism also allows quality strategies no human can use:
+- Run several agents on one spec and keep the one that passes hidden acceptance tests.
+- Have one agent write tests from the spec while another, which never sees them, writes the code.
+
+**A hypothesis worth a slide: the importance of rhythm and order inverts.**
+- **For humans**, a study of 39 professionals (Fucci et al., IEEE TSE 2017) found that quality and productivity went with *granularity and uniformity* (short, steady cycles), while test-first versus test-last mattered little.
+- **For LLMs**, tests written after faulty code catch 14% of faults, against 25% for tests written independently (Konstantinou et al. 2026).
+- **Together:** *for humans the rhythm matters and the order doesn't; for agents the order matters and the rhythm is theatre.* That's two studies plus this repo, so present it as a hypothesis.
+
+**Keep the claim to what was tested:** katas plus Böckeler's greenfield tasks. Nobody here has tested where red-first should earn the most, reproducing a bug in legacy code before fixing it. Say "for greenfield feature work".
+
+**Wording:** say "a current frontier model", not "the best model available". Opus 5.5 isn't Anthropic's most capable model (that's Fable 5.1), and other vendors have frontier models too.
+
+### Other perspectives
+
+| Who | Position | Bearing on this talk |
+|---|---|---|
+| **Kent Beck** | TDD rules in the agent's instructions; watches for loops, unrequested features and deleted tests: the "genie" cheating. *TDD by Example* includes Obvious Implementation. | TDD as a leash the *human* holds. Supports keeping tests; also supports letting a confident agent take bigger steps. |
+| **Emily Bache** | The real contrast is a prompt versus a harness: a test list, strong refactoring, deterministic hooks. | The probity run confirms the adherence half. The benefits half is untested, and so is a full harness. |
+| **Birgitta Böckeler** | Stopped telling agents to do TDD: 3–8.5× the tokens, no quality gain. Prefers mutation testing, refactoring triggers, Approved Scenarios. | Closest to this talk. The probity run adds "even with a harness, the same result". |
+| **Nizar Selander** (probity) | Enforcement doesn't guarantee good design; the value is less hand-holding and less prompt fatigue for the human. | A fair counterpoint: our run was unattended, so it never measured Selander's main claim. |
+| **Practitioners** (comments under the video) | A single prompt isn't a fair test. What works is a harness plus human approval gates. Test-first makes agents write better tests. | Agree on "harness + human"; split on micro-steps. |
+| **Critics** | LLM TDD outsources design to something with no taste. | Supports keeping the design judgement, which lives in the test list, with the human. |
+| **The agents' own reflections** | Keep the test list and "never claim green without a run"; relax the ceremony. The probity agent prefers deterministic guardrails. | Nearly unanimous with this talk, but they were answering a TDD examiner, so give it less weight. |
+| **Research** | Tests given with the task help LLMs (Mathews & Nagappan). Independently written tests catch more (Konstantinou). Human TDD evidence is mixed; granularity matters more than order (Fucci). | Supports tests-as-spec; nothing supports forced micro-steps. |
+
+---
+
+## 6. Objections the audience will raise
 
 - **"The kata is too small to judge TDD."** True, and every agent said so. It's also the regime where TDD's "discovery" benefit should be *strongest* for a human, and it showed none for agents. The large-codebase claim is plausible (blast radius, context limits) but untested here. Say so.
 - **"The models were trained on this kata."** Probably. That is the point: when the answer is already known, the micro-cycle has nothing to discover. Most everyday agent work looks more like this than like genuine research.
 - **"Wrong expectations are a spec problem, not a TDD problem."** Agreed, and that's the thesis. TDD's remaining value is in the spec, and the spec needs a human reviewer or an independent source.
 - **"Research shows TDD helps LLMs."** It shows that *tests supplied with the task* help (Mathews & Nagappan 2024), and that incremental test-guided generation with repair helps at class level (Liang et al. 2026, +12–26 pp). Neither isolates the red-green-refactor ritual or the commit-per-phase. Both support "keep the oracle", not "keep the ceremony".
-- **"Kent Beck uses TDD with agents."** He does ("Augmented Coding", June 2025). His warning signs include the agent *"disabling or deleting tests"*. For him TDD is a leash on the agent that the **human** holds. That fits the "moves to the human" column.
+- **"Kent Beck uses TDD with agents."** Beck does ("Augmented Coding", June 2025). Beck's warning signs include the agent *"disabling or deleting tests"*. For Beck, TDD is a leash on the agent that the **human** holds. That fits the "moves to the human" column.
+- **"Emily Bache says you need a proper harness, not a prompt."** We tried one: probity enforcing TDD on Opus 5.5. Adherence went up, as Bache predicts. The result didn't improve, and it cost 13× the no-TDD run (§2.9). The part of Bache's argument that holds is the test list, which works best when a human reviews it (Astra, §2.8).
 
 ---
 
-## 6. Suggested 30-minute run of show
+## 7. Suggested 30-minute run of show
 
 | Time | Segment | Notes |
 |---|---|---|
@@ -330,19 +438,19 @@ Every agent said **the value grows with the size of the problem and the codebase
 | 9:00–10:00 | **Start the two agents in herdr** | A: README with TDD instructions (`llm-opus5.5` is empty and ready). B: README without them. **Predict out loud:** B is done before you finish the sentence, A takes ~4 min, and both will be correct. |
 | 10:00–13:00 | **The experiment** | Table from §1. Say the confounds before anyone else does. |
 | 13:00–17:00 | **The GLM story, and your 2016 twin** | Perfect process, wrong answer, and a reflection that congratulates itself; the two quotes side by side. Then: "Ten years ago my tests were green and Aces lost to 2s." The lesson isn't specific to agents. |
-| 17:00–19:00 | **Red is theatre; one shape** | The 46% passed-on-write figure; nine implementations with one design |
+| 17:00–19:00 | **Red is theatre; one shape; then enforce it** | The 46% passed-on-write figure; ten implementations with one design. Then probity: perfect adherence, same result, $3.54 vs $0.27 (§2.9). |
 | 19:00–21:00 | **Can you trust the reflections?** | DeepSeek copying Opus (75 shared phrases vs 0), invented hashes, "TDD cosplay" in `seb` |
 | 21:00–26:00 | **Keep / leave behind / moves to the human** | The three tables in §4 |
 | 26:00–28:30 | **Show the herdr results** | Run the hidden acceptance suite (Appendix A) on both agents live. Show time, commits and tokens side by side. |
 | 28:30–30:00 | **Close** | "Test-first becomes spec-first." |
 
-**Live demo risk:** if agent A (TDD) finishes wrong or B does something odd, that makes the talk better, not worse. Keep `llm-claude-opus5` and `llm-no-tdd-opus5.5` as fallback screenshots.
+**Live demo risk:** if agent A (TDD) finishes wrong or B does something odd, that makes the talk better, not worse. Keep `llm-claude-opus5`, `llm-no-tdd-opus5.5` and `llm-probity-opus5.5` as fallback screenshots.
 
 ### History timeline (for slides 1–3)
 
 | Year | Event | Source status |
 |---|---|---|
-| 1957–60s | Test-first ideas in early programming texts; NASA Project Mercury uses test-first micro-increments (Larman & Basili, 2003). Beck says he *rediscovered* TDD from an old book: type the expected output tape, then program until the real output matches. | From memory; check before putting on a slide |
+| 1957–60s | Test-first ideas in early programming texts; NASA Project Mercury uses test-first micro-increments (Larman & Basili, 2003). Beck describes having *rediscovered* TDD from an old book: type the expected output tape, then program until the real output matches. | From memory; check before putting on a slide |
 | 1994 | Beck, *Simple Smalltalk Testing: With Patterns* (SUnit) | From memory |
 | 1997 | JUnit, written by Beck and Gamma on a flight to OOPSLA | From memory |
 | 1999 | *Extreme Programming Explained*: test-first as an XP practice | From memory |
@@ -350,11 +458,15 @@ Every agent said **the value grows with the size of the problem and the codebase
 | 2006 | Dan North, "Introducing BDD" | From memory |
 | 2009 | Freeman & Pryce, *Growing Object-Oriented Software, Guided by Tests* | From memory |
 | 2014 | DHH, "TDD is dead. Long live testing." → *Is TDD Dead?* sessions with Beck and Fowler | From memory |
+| 2017 | Fucci, Erdogmus, Turhan, Oivo, Juristo, *A Dissection of the Test-Driven Development Process* (IEEE TSE): for 39 professionals, granularity and uniformity mattered more than test-first vs test-last | ✅ checked (arXiv 1611.05994) |
 | **Dec 11 2023** | Beck, **"Canon TDD"**: test list → one test → pass → optionally refactor → repeat. Explicitly warns against turning all list items into tests up front. | ✅ checked (newsletter.kentbeck.com/p/canon-tdd) |
 | Feb 2024 | Mathews & Nagappan, *Test-Driven Development for Code Generation* (arXiv 2402.13521): supplying tests improves LLM success | ✅ checked |
 | **Jun 25 2025** | Beck, **"Augmented Coding: Beyond the Vibes"**: TDD rules in the agent's system prompt; warning signs are loops, unrequested features and *"the genie … disabling or deleting tests"* | ✅ checked |
 | Feb 2026 | Liang et al., *Scaling Test-Driven Code Generation from Functions to Classes* (arXiv 2602.03557): +12–26 pp class-level correctness | ✅ checked |
 | Jul 2026 | Konstantinou, Tambon, Papadakis, *On the risk of coding before testing* (arXiv 2607.05139): tests generated after faulty code detect 14% of faults, against 25% for independently generated tests | ✅ checked |
+| **Aug 10 2026** | Böckeler, **"TDD inside the agent loop: theater or actual value?"** (martinfowler.com): no quality gain from TDD prompts, 3–8.5× the tokens | ✅ checked |
+| Sep 2026 | Nizar Selander's **probity** 1.10.1: hooks that enforce TDD in Claude Code, Codex and Copilot CLI | ✅ checked (github.com/nizos/probity) |
+| **Sep 23 2026** | Emily Bache's response video (*Modern Software Engineering*): the study tested a prompt, not TDD; a test list and a harness are what's missing | ✅ checked |
 
 ---
 
@@ -406,3 +518,5 @@ test('1000 random games match reference', () => {
 - **Passed on write:** tests whose first commit leaves the suite green.
 - **Reflection overlap:** shared 6-word shingles between every pair of reflection files.
 - **Cross-suite matrix:** each branch's `cardsGame.test.js` run against each branch's `cardsGame.js`, plus four planted bugs (lexicographic compare, Ace low, ties scored for Steve, first round only).
+- **Costs:** summed from the Claude Code session transcripts, counting each API response once, and priced at list rates. Opus 5.5: $4/$20 per million tokens, cache reads $0.20, 1-hour cache writes $8. Opus 5: $5/$25, $0.50, $10. The probity run's own reported $2.75 matches this formula. The validator's usage comes from probity's `--debug` log (Sonnet 5 and Haiku 4.5 calls).
+- **Probity run:** `~/dev/runs/run-agent.sh` (headless `claude -p`, Opus 5.5 at `xhigh`, an allowlist of shell commands). The event stream, the transcript and every probity verdict are kept in `~/dev/runs/`.
