@@ -1,4 +1,3 @@
-
 * titel slide
 * whoami
 * the old days
