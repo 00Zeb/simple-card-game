@@ -388,6 +388,8 @@ Every agent said **the value grows with the size of the problem and the codebase
 | Losing state when context is compacted or a session ends | | The test list as external memory |
 | Drift in long sessions, unrequested extras | | Deterministic hooks; the test list as a scope fence |
 
+The left column is the same list as the "Why TDD works for humans" slides (§7). That's deliberate: the talk introduces the human limitations early and comes back to them here.
+
 **Some limitations are shared:** behaviour nobody listed goes unprotected, by a human (2016 Q/K/A) and by an agent (probity's first-card bug). The practices that counter shared limitations belong to both of you.
 
 **Speed and parallelism are real agent strengths, but they move the bottleneck.** They shift it to verification, and to *your understanding*. TDD used to build the human's understanding step by step. A commenter under Emily Bache's video: *"the biggest advantage of TDD has always been how it makes me confident that I understand what the code does."* Five parallel agents take that away, so say where understanding comes from now: reviewing the test list and the acceptance examples. Parallelism also allows quality strategies no human can use:
@@ -429,24 +431,28 @@ Every agent said **the value grows with the size of the problem and the codebase
 
 ---
 
-## 7. Suggested 30-minute run of show
+## 7. Suggested 45-minute run of show
 
 | Time | Segment | Notes |
 |---|---|---|
-| 0:00–3:30 | **A brief history** | Timeline below; end on "Canon TDD, 2023: step 1 is a test list". The whole talk hangs on step 1. |
-| 3:30–9:00 | **Live TDD, 5 min** | Do the card game in the Canon TDD style. Deliberately write `"Josh wins x to y"` on your test list and ask the room what x is. That plants the ambiguity. |
-| 9:00–10:00 | **Start the two agents in herdr** | A: README with TDD instructions (`llm-opus5.5` is empty and ready). B: README without them. **Predict out loud:** B is done before you finish the sentence, A takes ~4 min, and both will be correct. |
-| 10:00–13:00 | **The experiment** | Table from §1. Say the confounds before anyone else does. |
-| 13:00–17:00 | **The GLM story, and your 2016 twin** | Perfect process, wrong answer, and a reflection that congratulates itself; the two quotes side by side. Then: "Ten years ago my tests were green and Aces lost to 2s." The lesson isn't specific to agents. |
-| 17:00–19:00 | **Red is theatre; one shape; then enforce it** | The 46% passed-on-write figure; ten implementations with one design. Then probity: perfect adherence, same result, $3.54 vs $0.27 (§2.9). |
-| 19:00–21:00 | **Can you trust the reflections?** | DeepSeek copying Opus (75 shared phrases vs 0), invented hashes, "TDD cosplay" in `seb` |
-| 21:00–26:00 | **Keep / leave behind / moves to the human** | The three tables in §4 |
-| 26:00–28:30 | **Show the herdr results** | Run the hidden acceptance suite (Appendix A) on both agents live. Show time, commits and tokens side by side. |
-| 28:30–30:00 | **Close** | "Test-first becomes spec-first." |
+| 0:00–1:30 | **The question** | Three experts, three answers. Böckeler: *"theater or actual value?"* Bache: *"not convinced."* Jain: *"not whether independent sensors are needed, but when they run."* This talk adds evidence. |
+| 1:30–5:00 | **A brief history** | Timeline below; end on "Canon TDD, 2023: step 1 is a test list". The whole talk hangs on step 1. |
+| 5:00–10:00 | **Why TDD works for humans** | Material below. Every benefit answers a human limitation. End on: *"Hold that thought: which of these limitations does an agent have?"* |
+| 10:00–11:00 | **Start the two agents in herdr** | A: README with TDD instructions (`llm-opus5.5` is empty and ready). B: README without them. They run while you code: a race. **Predict out loud:** B is done before your first green, A takes 5–11 minutes, and both will be correct. |
+| 11:00–23:00 | **Live TDD, about 12 minutes** | The card game in the Canon TDD style. Demo notes below. Glance at the herdr panes: *"B finished before my first green."* |
+| 23:00–26:00 | **The experiment** | Table from §1. Say the confounds before anyone else does. |
+| 26:00–30:00 | **The GLM story, and your 2016 twin** | Perfect process, wrong answer, and a reflection that congratulates itself; the two quotes side by side. Then: "Ten years ago my tests were green and Aces lost to 2s." The lesson isn't specific to agents. |
+| 30:00–33:30 | **Red is theatre; one shape; then enforce it** | The 46% passed-on-write figure; ten implementations with one design. Then probity: perfect adherence, same result, $3.54 vs $0.27 (§2.9). Then Jain's study: the harness rescued a cheap model (3/10 → 10/10) and added only cost to a frontier one. |
+| 33:30–35:30 | **Can you trust the reflections?** | DeepSeek copying Opus (75 shared phrases vs 0), invented hashes, "TDD cosplay" in `seb` |
+| 35:30–38:00 | **Show the herdr results** | Run the hidden acceptance suite (Appendix A) on both agents live. Show time, commits and tokens side by side. |
+| 38:00–42:30 | **Keep / leave behind / moves to the human** | Go back to the "why TDD works for humans" table and mark each row: does the agent have this limitation? The rows it shares (unlisted behaviour, blind spots) are what you keep; the rows it doesn't (fear, working memory, rhythm) are what you leave behind. Then the three tables in §4. |
+| 42:30–45:00 | **Close** | "Test-first becomes spec-first." End on Jain's sentence. |
 
-**Live demo risk:** if agent A (TDD) finishes wrong or B does something odd, that makes the talk better, not worse. Keep `llm-claude-opus5`, `llm-no-tdd-opus5.5` and `llm-probity-opus5.5` as fallback screenshots.
+**If questions are inside the 45 minutes:** cut the live TDD to 9 minutes (stop at the first face-card test) and fold the reflections segment into the experiment. That leaves about 6 minutes for questions.
 
-### History timeline (for slides 1–3)
+**Live demo risk:** if agent A (TDD) finishes wrong or B does something odd, that makes the talk better, not worse. Keep `llm-claude-opus5`, `llm-no-tdd-opus5.5` and `llm-probity-opus5.5` as fallback screenshots. Agent A has about 25 minutes between start and reveal, more than double the slowest run so far.
+
+### History timeline (slides for 1:30–5:00)
 
 | Year | Event | Source status |
 |---|---|---|
@@ -456,9 +462,11 @@ Every agent said **the value grows with the size of the problem and the codebase
 | 1999 | *Extreme Programming Explained*: test-first as an XP practice | From memory |
 | 2002 | *Test-Driven Development: By Example* | From memory |
 | 2006 | Dan North, "Introducing BDD" | From memory |
+| 2008 | Nagappan, Maximilien, Bhat, Williams, *Realizing quality improvement through test driven development* (Empirical Software Engineering): four industrial teams, pre-release defect density 40–90% lower; the teams estimated 15–35% more initial development time | ✅ checked |
 | 2009 | Freeman & Pryce, *Growing Object-Oriented Software, Guided by Tests* | From memory |
 | 2014 | DHH, "TDD is dead. Long live testing." → *Is TDD Dead?* sessions with Beck and Fowler | From memory |
 | 2017 | Fucci, Erdogmus, Turhan, Oivo, Juristo, *A Dissection of the Test-Driven Development Process* (IEEE TSE): for 39 professionals, granularity and uniformity mattered more than test-first vs test-last | ✅ checked (arXiv 1611.05994) |
+| 2020 | Ghafari, Gross, Fucci, Felderer, *Why Research on Test-Driven Development is Inconclusive?* (ESEM): studies disagree mainly because of how they are set up | ✅ checked (arXiv 2007.09863) |
 | **Dec 11 2023** | Beck, **"Canon TDD"**: test list → one test → pass → optionally refactor → repeat. Explicitly warns against turning all list items into tests up front. | ✅ checked (newsletter.kentbeck.com/p/canon-tdd) |
 | Feb 2024 | Mathews & Nagappan, *Test-Driven Development for Code Generation* (arXiv 2402.13521): supplying tests improves LLM success | ✅ checked |
 | **Jun 25 2025** | Beck, **"Augmented Coding: Beyond the Vibes"**: TDD rules in the agent's system prompt; warning signs are loops, unrequested features and *"the genie … disabling or deleting tests"* | ✅ checked |
@@ -467,8 +475,47 @@ Every agent said **the value grows with the size of the problem and the codebase
 | **Aug 10 2026** | Böckeler, **"TDD inside the agent loop: theater or actual value?"** (martinfowler.com): no quality gain from TDD prompts, 3–8.5× the tokens | ✅ checked |
 | Sep 2026 | Nizar Selander's **probity** 1.10.1: hooks that enforce TDD in Claude Code, Codex and Copilot CLI | ✅ checked (github.com/nizos/probity) |
 | **Sep 23 2026** | Emily Bache's response video (*Modern Software Engineering*): the study tested a prompt, not TDD; a test list and a harness are what's missing | ✅ checked |
+| **Oct 13 2026** | Naresh Jain, **"Are Harnesses Worth the Cost?"** (martinfowler.com): a harness took a cheap model from 3/10 to 10/10 accepted runs and added only cost (about 7×) to a frontier model | ✅ checked |
 
 ---
+
+### Why TDD works for humans (slides for 5:00–10:00)
+
+**Frame:** every benefit is a countermeasure to a human limitation. This framing is what makes the agent half of the talk work: later, the question becomes *which of these limitations does an agent have?*
+
+| Human limitation | What TDD does about it | Practice |
+|---|---|---|
+| Limited working memory | One failing test at a time; everything else waits on the list | Test list, one test at a time (Canon TDD) |
+| Fear of breaking things | Every change is one small step away from green. Beck: TDD as *"a way of managing fear during programming"* | Small steps; run all the tests |
+| Premature design, gold plating | Build only what a failing test asks for | Fake it, triangulate, YAGNI |
+| Can't judge a design before using it | The test is the code's first client: hard to test means hard to use | Test first |
+| Slow, painful debugging | When something breaks, the cause is in the last few lines | Short cycles, frequent runs |
+| Forgetting why code behaves as it does | The tests document behaviour, and they're executable | Tests as specification |
+| Losing the nerve to change old code | A safety net makes refactoring cheap | Refactor on green |
+
+**The evidence, stated honestly** (all checked):
+- **Industry:** Nagappan, Maximilien, Bhat and Williams (2008) studied three Microsoft teams and one IBM team. Pre-release defect density was **40–90% lower** than in comparable non-TDD projects. The teams estimated **15–35% more** initial development time; that figure is their own estimate, not a measurement.
+- **What matters in the process:** Fucci et al. (2017), 39 professionals. Short, steady cycles explained quality and productivity better than whether tests came first.
+- **Why studies disagree:** Ghafari, Gross, Fucci and Felderer (2020) found that TDD research conflicts mainly because studies are set up differently.
+- **The bridge to the agent half:** Böckeler's article lists the benefits she wanted to keep: tests that aren't tautological, testability, red proving a test can catch a regression, better design, YAGNI restraint, fast localised feedback, and psychological confidence. Then she tested exactly those on agents.
+
+**Slide line:** *"For humans, the evidence is good but not unanimous: a big drop in defects, a real time cost, and studies that disagree mostly because they're set up differently."* Add your own 12 years as a trainer here: what you see change in teams that adopt it.
+
+**Closing line for the segment:** *"Every row in this table answers a human limitation. Hold that thought: which of them does an agent have?"*
+
+### Live TDD demo notes (11:00–23:00)
+
+- **Point at the benefits as they happen:**
+  - the test list (working memory);
+  - each red turning green (fear);
+  - a fake (premature design);
+  - a refactor (safety net).
+- **Plant three things on the test list for later:**
+  - `"Josh wins x to y"`: ask the room what x is (sets up GLM).
+  - `"A beats K"`: the case your 2016 demo never tested (sets up the 2016 slide).
+  - One *Obvious Implementation* once you're confident (sets up the point that probity forbids it).
+- **Pace:** your 2016 run reached the face-card red after 14 minutes, while also explaining to an audience. In 12 minutes, plan to stop at J beats T or A beats K.
+- **Checkpoints:** in rehearsal, commit or tag each milestone so you can `git checkout` ahead if you run late, without breaking the story.
 
 ## Appendix A: hidden acceptance suite
 
