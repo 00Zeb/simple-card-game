@@ -1,0 +1,20 @@
+<section id="jain" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#42affa">The new ways · Naresh Jain, Oct 2026</p>
+<h2 style="font-family:'Outfit', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#f2f1ec">Are harnesses worth the cost?</h2>
+</div>
+<table style="font-family:'Inter', Arial, sans-serif;font-size:32px;color:#f2f1ec">
+<tr><th style="width:30%;color:#42affa;text-align:left">Model</th><th style="width:16%;color:#42affa;text-align:left">Harness</th><th style="width:18%;color:#42affa;text-align:right">Accepted</th><th style="width:18%;color:#42affa;text-align:right">Time</th><th style="width:18%;color:#42affa;text-align:right">Cost</th></tr>
+<tr style="background:rgba(255,255,255,0.05)"><td>Sol (frontier)</td><td>No</td><td>10 of 10</td><td>6 min 51 s</td><td>~$0.41</td></tr>
+<tr style="background:rgba(255,255,255,0.05)"><td>Sol (frontier)</td><td>Yes</td><td>10 of 10</td><td>19 min 53 s</td><td>~$2.68</td></tr>
+<tr><td>Luna (cheap)</td><td>No</td><td style="color:#ff6b6b">3 of 10</td><td>15 min 56 s</td><td>~$0.09</td></tr>
+<tr><td>Luna (cheap)</td><td>Yes</td><td style="color:#5fd38d">10 of 10</td><td>35 min</td><td>~$0.27</td></tr>
+</table>
+<div style="flex:1"></div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:32px;line-height:1.4"><span style="color:#42affa">→ </span>His harness isn’t TDD: human-written specs and examples, plus an independent acceptance gate</p>
+<p style="font-size:32px;font-weight:600;line-height:1.4;color:#42affa">The ceremony buys nothing for a frontier model on a task it can already do.</p>
+</div>
+<img src="/_blob/dd279c92a42820343cee83ea35bf0e12" alt="Knowit" style="position:absolute;right:128px;bottom:64px;width:106px;height:24px;object-fit:contain;opacity:0.7">
+<aside>“Are Harnesses Worth the Cost?”, martinfowler.com, 13 Oct 2026. A greenfield Java backend-for-frontend, 10 runs per arm, judged by 178 external acceptance tests. The harness took the cheap model from 3 of 10 to 10 of 10, and harnessed Luna still cost about a third less than unharnessed Sol. His recommendation matches this talk: for frontier models, run the independent check once as a final gate; for cheaper models, run it throughout.</aside>
+</section>

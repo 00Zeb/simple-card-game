@@ -1,0 +1,27 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-15T08:30:00Z" },
+  "lists": "css",
+  "title": "TDD in the Agentic Era",
+  "cover": "cover",
+  "order": [
+    "cover", "whoami", "hook",
+    "old-days", "myths", "definition", "cycle", "gold-plating", "brain-dump", "fear", "todo-list", "evidence", "demo",
+    "new-ways", "agent-needs", "experiment", "charade", "scorecard", "tiny-steps", "cost", "others", "probity", "jain", "race-results",
+    "way-forward", "leave-behind", "double-loop", "planning", "examples", "slicing",
+    "close", "questions"
+  ],
+  "sections": {
+    "s1": { "description": "Who I am, and why I changed my mind about TDD for agents", "start": "cover" },
+    "s2": { "description": "The old days: what TDD is, why it works for humans, and a live demo", "start": "old-days" },
+    "s3": { "description": "The new ways: what happened when agents were told to do TDD", "start": "new-ways" },
+    "s4": { "description": "The way forward: what to leave behind and what to do instead", "start": "way-forward" },
+    "s5": { "description": "Closing line and questions", "start": "close" }
+  },
+  "faces": {
+    "outfit": { "family": "Outfit", "href": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" },
+    "inter": { "family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" },
+    "fira-code": { "family": "Fira Code", "href": "https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" }
+  },
+  "designSystems": []
+}
