@@ -17,12 +17,10 @@
         * can't judge a design before using it → the test is the code's first client
         * forgetting why the code does what it does → tests as executable specification
         * which of these limitations does an agent actually have?
-    * (optional) start the herdr race
-        * same kata, two agents: one told to do TDD, one not
-        * results later in the talk
     * live demo
         * the card game kata: Steve vs Josh, the higher card wins the round
         * "Steve wins x to y", "Josh wins x to y" or "Tie"
+        * same kata, two agents: one told to do TDD, one not - let's race.
 * the new ways [21:00–36:00]
     * which of TDD's benefits does an agent need?
         * an agent != human (different capabilities)
@@ -62,13 +60,12 @@
         * cheap model: 3/10 without the harness, 10/10 with it
         * his harness isn't TDD: human-written specs and examples, plus an independent acceptance gate
         * the ceremony buys nothing for a frontier model on a task it can already do
-    * (optional) the herdr race: results
+    * the herdr race: results
         * TDD agent: time, cost, acceptance suite
         * no-TDD agent: time, cost, acceptance suite
 * the way forward (for the coming year) [36:00–42:00]
     * leave behind
         * fake it and minimal green
-        * a commit for every red, green and refactor
         * forcing the smallest step
         * a perfect process as proof of quality
     * move up a loop
@@ -80,7 +77,7 @@
         * why? to not have to redo, and to make sure interpretations are correct
         * GLM's "Josh wins 1 to 2": no agent's TDD caught the "x to y" ambiguity
         * a human reading the test list would have caught it in seconds
-        * a small step compared to spec-driven development (spec-kit, Kiro)
+        * a small step compared to spec-driven development (spec-kit, Openspec)
     * use acceptance-test-driven examples to specify desired behaviour
         * only the acceptance suite the agents never saw caught GLM's and Gemma's bugs
         * tests given with the task help LLMs (Mathews & Nagappan 2024)
@@ -89,6 +86,7 @@
         * examples are executable; a spec document isn't
     * vertical slicing
         * small diffs a human can actually review
+        * fast incremental delivery at all layers 
         * from experience, not from this experiment
 * test-first becomes spec-first: the human owns the examples, the agent does the cycles [42:00–44:00]
 * questions
@@ -101,7 +99,6 @@
     - "Josh wins x to y": ask the room what x is (sets up GLM).
     - "A beats K" (sets up my 2016 run).
     - One obvious implementation (sets up probity forbidding it).
-- herdr race: decide whether it's in or out. If it's in, starting it takes the 1-minute buffer and its results take 2 minutes of the new ways. If it's out, give those 2 minutes to the live demo.
 - Check the history years before 2008 before they go on a slide; I only have them from memory.
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2.
