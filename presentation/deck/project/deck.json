@@ -6,7 +6,7 @@
   "cover": "cover",
   "order": [
     "cover", "whoami", "hook",
-    "old-days", "myths", "definition", "cycle", "gold-plating", "brain-dump", "fear", "todo-list", "evidence", "demo",
+    "old-days", "myths", "definition", "cycle", "step-red", "step-green", "gold-plating", "step-refactor", "brain-dump", "fear", "todo-list", "evidence", "demo",
     "new-ways", "agent-needs", "experiment", "charade", "scorecard", "tiny-steps", "cost", "others", "probity", "jain", "race-results",
     "way-forward", "leave-behind", "double-loop", "planning", "examples", "slicing",
     "close", "questions"

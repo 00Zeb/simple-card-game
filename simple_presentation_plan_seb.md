@@ -14,16 +14,29 @@
         * Breaking a problem into pieces
         * Rapid feedback
         * A design process
-        * Design results: Dependencies are injected / Decoupled components / A modular and extensible system / Frequent use of composed method ((highlighted box on the right))
+        * Design results: Dependencies are injected / A modular and extensible system / Frequent use of composed method ((highlighted box on the right))
     * Why TDD works for humans
-        * Red: Consumption awareness: the test is the code's first client / Verify that the test is useful / Improves testability ((three cards with arrows between them))
+        * Red: Consumption awareness: the test is the code's first client / Verify that the test is useful / Improves testability ((three cards with arrows between them; arrows back to Red from Green and from Refactor))
         * Green: Implement the change / Done, although maybe not / Prevents gold plating
         * Refactor: Refactoring ≠ redesign / As simple as possible for today's needs / Easier when backed by tests
         * Each step answers a human limitation.
-    * Gold plating
+    * Red: create a failing test ((miniature of the overview top right, Red highlighted; same on the next steps))
+        * Consumption awareness / Verify that the test is useful / Improves testability ((red-outlined chips))
+        * ((code: the calculator test, fixed so it can go red: assertThat(actual, is(expected))))
+        * ((code: the minesweeper test with the mine placer injected; method name typo fixed to constructMineField))
+    * Green: make the test pass
+        * Implement the change
+        * Means done, although maybe not
+        * Prevents gold plating
         * ((the cartoon: "Hmm, I will probably need this functionality soon!"))
+    * Gold plating
         * ((the 46-line Hello World screenshot))
         * 46 / lines of Java to print "Hello World!", with a strategy, an abstract factory and a singleton ((big number))
+    * Refactor as needed
+        * Refactoring ≠ redesign
+        * As simple an implementation as possible for today's needs
+        * Easier when backed by tests
+        * ((code: printing a person, before and after extracting print(person)))
     * Get it out of your head and onto the list. ((statement slide, eyebrow "Brain dumping ground"))
         * Limited working memory
     * FEAR ((huge, struck through in red; eyebrow "Merciless refactoring"))
@@ -150,7 +163,7 @@
 ## notes (not slides)
 
 - Timing assumes questions come after the 45 minutes, which leaves 1 minute of buffer, and starting the herdr race uses it. If questions are inside the 45, cut the live demo to 9 minutes.
-- The old days have 8 slides in the 7 minutes before the demo. The Hello World, brain dumping ground and merciless refactoring slides are 10–20 seconds each; the myths, definition and cycle slides carry the time.
+- The old days have 11 slides in the 7 minutes before the demo. The Hello World, brain dumping ground and merciless refactoring slides are 10–20 seconds each; the myths, definition, cycle and three step slides carry the time.
 - Live demo: hard stop at a checkpoint tag. It comes first and the new material comes last, so an overrun eats the part people came for.
 - Plant three things on the demo's test list:
     - "Josh wins x to y": ask the room what x is (sets up GLM).

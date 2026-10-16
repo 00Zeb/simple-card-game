@@ -1,32 +1,34 @@
-<section id="cycle" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<section id="cycle" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
 <div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#42affa">The old days</p>
 <h2 style="font-family:'Outfit', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#f2f1ec">Why TDD works for humans</h2>
 </div>
+<div style="display:flex;flex-direction:column">
 <div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-top:8px solid #ff6b6b;border-radius:20px;padding:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-top:8px solid #ff6b6b;border-radius:20px;padding:32px 40px">
 <h3 style="font-family:'Outfit', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.2;color:#ff6b6b">Red</h3>
 <p style="font-size:32px;line-height:1.4">Consumption awareness: the test is the code’s first client</p>
 <p style="font-size:32px;line-height:1.4">Verify that the test is useful</p>
 <p style="font-size:32px;line-height:1.4">Improves testability</p>
 </div>
 <div style="display:flex;align-items:center"><x-shape kind="arrow-right" style="width:56px;height:28px;background:#42affa"></x-shape></div>
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-top:8px solid #5fd38d;border-radius:20px;padding:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-top:8px solid #5fd38d;border-radius:20px;padding:32px 40px">
 <h3 style="font-family:'Outfit', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.2;color:#5fd38d">Green</h3>
 <p style="font-size:32px;line-height:1.4">Implement the change</p>
 <p style="font-size:32px;line-height:1.4">Done, although maybe not</p>
 <p style="font-size:32px;line-height:1.4">Prevents gold plating</p>
 </div>
 <div style="display:flex;align-items:center"><x-shape kind="arrow-right" style="width:56px;height:28px;background:#42affa"></x-shape></div>
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-top:8px solid #42affa;border-radius:20px;padding:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-top:8px solid #42affa;border-radius:20px;padding:32px 40px">
 <h3 style="font-family:'Outfit', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.2;color:#42affa">Refactor</h3>
 <p style="font-size:32px;line-height:1.4">Refactoring ≠ redesign</p>
 <p style="font-size:32px;line-height:1.4">As simple as possible for today’s needs</p>
 <p style="font-size:32px;line-height:1.4">Easier when backed by tests</p>
 </div>
 </div>
-<div style="flex:1"></div>
+<svg aria-label="Arrows from Green back to Red and from Refactor back to Red" width="1664" height="72" viewBox="0 0 1664 72"><path d="M832 0 V32 H300 V16" fill="none" stroke="#5fd38d" stroke-width="4"/><path d="M290 18 L300 2 L310 18 Z" fill="#5fd38d"/><path d="M1421 0 V60 H220 V16" fill="none" stroke="#42affa" stroke-width="4"/><path d="M210 18 L220 2 L230 18 Z" fill="#42affa"/></svg>
+</div>
 <p style="font-size:44px;font-weight:300;line-height:1.3;color:#a7b0b8">Each step answers a human limitation.</p>
 <img src="/_blob/dd279c92a42820343cee83ea35bf0e12" alt="Knowit" style="position:absolute;right:128px;bottom:64px;width:106px;height:24px;object-fit:contain;opacity:0.7">
-<aside>If you reuse the old calculator test here: assertThat(expected, is(expected)) can never go red. Show it on purpose (“this test passes on write, like 46% of the agents’ tests”) or fix it.</aside>
+<aside>The overview. Both green and refactor loop back to red: the next failing test. The next three slides take one step each.</aside>
 </section>
