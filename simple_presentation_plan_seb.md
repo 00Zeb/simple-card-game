@@ -63,7 +63,7 @@
         * RED / GREEN / REFACTOR ((traffic light on the right))
 * The new ways: What happened when agents were told to do TDD [21:00–36:00] ((section slide, eyebrow "Part 2"))
     * Which of TDD's benefits does an agent need? ((eyebrow "The new ways · An agent ≠ a human"))
-        * It doesn't have: Fear / Boredom / Not knowing where the code is going ((card))
+        * It doesn't have: Fear / Boredom / Discipline inconsistency / Context switching fatigue / Not knowing where the code is going ((card))
         * It has, as badly as us or worse: Misreading the spec / Claiming done when it isn't / Blind spots in its own tests / Gold plating: Beck warns about unrequested features ((highlighted card))
         * GLM wrote the same misreading into its test and its code.
     * The experiment
