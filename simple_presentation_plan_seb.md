@@ -59,7 +59,6 @@
         * codewars.com/kata/53417de006654f4171000587 ((link))
         * Steve vs Josh: the higher card wins the round.
         * "Steve wins x to y", "Josh wins x to y" or "Tie"
-        * Same kata, two agents: one told to do TDD, one not. Let's race. ((in a box))
         * RED / GREEN / REFACTOR ((traffic light on the right))
 * The new ways: What happened when agents were told to do TDD [21:00–36:00] ((section slide, eyebrow "Part 2"))
     * Which of TDD's benefits does an agent need? ((eyebrow "The new ways · An agent ≠ a human"))
@@ -113,9 +112,6 @@
         * Luna (cheap) | Yes | 10 of 10 | 35 min | ~$0.27
         * His harness isn't TDD: human-written specs and examples, plus an independent acceptance gate
         * The ceremony buys nothing for a frontier model on a task it can already do. ((in blue))
-    * The herdr race: results ((demo background, "Live demo" label))
-        * TDD agent: Time [__ min] / Cost [$__] / Acceptance suite [_ of 8] ((two cards; fill in live))
-        * No-TDD agent: Time [__ min] / Cost [$__] / Acceptance suite [_ of 8]
 * The way forward: For the coming year [36:00–42:00] ((section slide, eyebrow "Part 3"))
     * Leave behind
         * Fake it and minimal green ((these four struck through in red))
@@ -164,7 +160,7 @@
 
 ## notes (not slides)
 
-- Timing assumes questions come after the 45 minutes, which leaves 1 minute of buffer, and starting the herdr race uses it. If questions are inside the 45, cut the live demo to 9 minutes.
+- Timing assumes questions come after the 45 minutes, which leaves about 3 minutes of buffer now that the herdr race is out. If questions are inside the 45, cut the live demo to 9 minutes.
 - The old days have 11 slides in the 7 minutes before the demo. The Hello World, brain dumping ground and merciless refactoring slides are 10–20 seconds each; the myths, definition, cycle and three step slides carry the time.
 - Live demo: hard stop at a checkpoint tag. It comes first and the new material comes last, so an overrun eats the part people came for.
 - Plant three things on the demo's test list:
