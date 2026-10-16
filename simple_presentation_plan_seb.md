@@ -83,10 +83,10 @@
         * Dependencies injected | No. Only my 2016 run injected the ranking.
         * Opus, after its refactor steps: return formatResult(scoreRounds(steve, josh)); ((code))
     * Tiny steps aren't meaningful for an agent
-        * Fake it | Lowers a human's risk. An agent can write the real code in one go, so the fake is a detour: "TDD created a bug and then caught it" (GLM) ((two columns: blue label, text))
-        * Minimal steps | Lower a human's risk. For an agent, they picked tests that drive the code, not tests that protect it: Opus 5 caught 5 of 9 planted bugs
+        * Fake it | Increases cycle speed for humans. An agent doesn't need this detour. ((two columns: blue label, text))
+        * Minimal steps | Lower a human's risk. For an agent, they led to tests that drive the code, not tests that protect it.
         * Gorman called it | The tests that drive the design aren't always good regression tests
-        * "A test first, not the tests" | A human rule: GLM wrote all 7 tests up front as skipped tests, and for an agent that was fine
+        * "A test first, not the tests" | A human rule against overinvesting up front: GLM wrote all 7 tests first, as skipped tests. For an agent, that investment is cheap.
     * The cost: tokens, dollars and time
         * Run | Time | Cost | Planted bugs caught ((table))
         * No TDD · Opus 5.5 | 29 s | $0.27 | 7 of 9 ((highlighted row))
