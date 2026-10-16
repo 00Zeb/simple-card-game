@@ -130,12 +130,14 @@
         * Small diffs a human can actually review
         * Fast incremental delivery at all layers
         * From experience, not from this experiment ((italic, grey))
+        * "On anything non-trivial, the spec is never right. … Adapting to feedback is the real requirements discipline." Jason Gorman ((quote box))
         * UI / API / Domain / Data: One slice through every layer ((diagram on the right))
     * Move up a loop
         * ((diagram on the left: two nested loops, "Outer loop / The human" and "Inner loop / The agent"))
         * The double loop from Growing Object-Oriented Software (Freeman & Pryce, 2009)
         * Outer loop, acceptance tests: the human
         * Inner loop, red/green/refactor: the agent
+        * "A human still owns what ships but now they're reviewing evidence and not just diffs." Addy Osmani ((quote box))
         * Isn't this just ATDD/BDD again? Yes, and that's the point. ((in blue))
     * Use acceptance-test-driven examples to specify desired behaviour
         * This experiment: Only the acceptance suite the agents never saw caught GLM's and Gemma's bugs ((three cards))
@@ -151,6 +153,7 @@
         * His own caveat: not battle-tested yet ((dashed box, like a sign))
 * Test-first becomes spec-first. / From Beck's TDD by Example to Adzic's Specification by Example. / The human owns the examples. The agent does the cycles. [42:00–44:00] ((blue statement slide))
 * Questions? / Sebastian Larsson
+* References: Beck (2002) Test-Driven Development: By Example · book / Nagappan et al. (2008) Realizing quality improvement through test driven development · microsoft.com/en-us/research (PDF) / Fucci et al. (2017) A dissection of the test-driven development process · arxiv.org/abs/1611.05994 / Ghafari et al. (2020) Why research on test-driven development is inconclusive · arxiv.org/abs/2007.09863 / Böckeler (2026) TDD inside the agent loop · martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html / Bache (2026) Response video, Modern Software Engineering · youtube.com/watch?v=wK5WgbqtI50 / Selander probity: TDD hooks for coding agents · github.com/nizos/probity / Jain (2026) Are harnesses worth the cost? · martinfowler.com/articles/are-harnesses-worth-the-cost.html / Freeman & Pryce (2009) Growing Object-Oriented Software, Guided by Tests · book / Gorman (2026) The spec is never right (LinkedIn) · lnkd.in/p/d3ZyQ4hs / Osmani (2026) Agentic verification · addyo.substack.com/p/agentic-verification / Mathews & Nagappan (2024) Test-driven development for code generation · arxiv.org/abs/2402.13521 / Konstantinou, Tambon & Papadakis (2026) On the risk of coding before testing · arxiv.org/abs/2607.05139 / Laforgia (2026) Expectation-Driven Development · a4al6a.substack.com/p/expectation-driven-development-a / Adzic (2011) Specification by Example · book / This experiment all runs, branches and analysis · github.com/00Zeb/simple-card-game ((eyebrow "Links"; one line per source, links clickable))
 
 ## how to edit (not slides)
 
@@ -184,5 +187,8 @@
     - the todo list → planning (for a human the list is working memory; for an agent the team agrees the expectations and the agent keeps its own test list);
     - Laforgia (myths) → Expectation-Driven Development.
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
-- When the deck is final, re-measure the planning slide's ~92% with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
+- When the deck is final, re-measure the planning slide's ~92% with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
+- Sources added 2026-10-16 (quotes on the vertical slicing and move-up-a-loop slides):
+    - Jason Gorman, LinkedIn, Oct 2026, "the spec is never right": https://lnkd.in/p/d3ZyQ4hs ("Adapting to feedback is the real requirements discipline.") A counterweight for planning/EDD; supports vertical slicing.
+    - Addy Osmani, "Agentic verification", 14 Oct 2026: https://addyo.substack.com/p/agentic-verification ("A human still owns what ships but now they're reviewing evidence and not just diffs." "Example tests say what should happen; properties say what must not.") Backs the way forward; our acceptance suite's 1000 random games against a reference implementation is his differential testing.
