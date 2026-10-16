@@ -1,6 +1,7 @@
 * TDD in the Agentic Era: What we keep, what we leave behind / Sebastian Larsson [0:00] ((cover))
-* Sebastian Larsson: Developer / Trainer / Manager / 14 years teaching TDD / "I'm not a great programmer; I'm just a good programmer with great habits." Kent Beck [0:30–1:30] ((eyebrow "Who am I"; roles on the left, the quote in a box on the right))
+* Sebastian Larsson: Developer / Trainer / Manager / Certifying developers in TDD since 2014 / "I'm not a great programmer; I'm just a good programmer with great habits." Kent Beck [0:30–1:30] ((eyebrow "Who am I"; roles on the left, the quote in a box on the right))
 * TDD is a habit. Agents don't have habits, they have instructions. / I no longer think agents should do TDD the way I taught it. [1:30–2:00] ((statement slide; second line in blue))
+* Agenda: 1 The old days / What TDD is, why it works for humans, and a live demo / 2 The new ways / What happened when agents were told to do TDD / 3 The way forward / What to leave behind, and what to do instead [2:00–2:15] ((eyebrow "Today"; three numbered rows))
 * The old days: What TDD is, and why it works for humans [2:00–21:00] ((section slide, eyebrow "Part 1"))
     * TDD myths
         * "TDD is writing the tests first" ((struck through in red))
@@ -183,5 +184,5 @@
     - the todo list → planning (for a human the list is working memory; for an agent the team agrees the expectations and the agent keeps its own test list);
     - Laforgia (myths) → Expectation-Driven Development.
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
-- When the deck is final, re-measure the planning slide's ~92% with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
+- When the deck is final, re-measure the planning slide's ~92% with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
