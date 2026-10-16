@@ -1,4 +1,4 @@
-<section id="planning" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<section id="planning" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
 <div style="position:absolute;left:1152px;top:128px;width:640px;height:298px;background:rgba(66,175,250,0.1);border:1px solid rgba(66,175,250,0.2);border-radius:20px"></div>
 <div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#42affa">The way forward</p>
@@ -6,21 +6,22 @@
 </div>
 <p style="font-size:44px;font-weight:300;line-height:1.3;width:960px">Why? To not have to redo, and to make sure interpretations are correct.</p>
 <div style="display:flex;gap:32px">
-<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px 40px">
 <h3 style="font-family:'Outfit', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.2;color:#42affa">The ambiguity</h3>
 <p style="font-size:32px;line-height:1.4">GLM’s “Josh wins 1 to 2”: no agent’s TDD caught the “x to y” ambiguity.</p>
-<p style="font-size:32px;line-height:1.4;color:#a7b0b8">A human reading the test list would have caught it in seconds.</p>
+<p style="font-size:32px;line-height:1.4;color:#a7b0b8">One agreed example, “Josh wins 2 to 1”, would have caught it in seconds.</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:40px">
-<h3 style="font-family:'Outfit', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.2;color:#42affa">The order</h3>
-<p style="font-size:32px;line-height:1.4">The only reds that changed the code came from face cards after number cards (Opus 5: A beats K, Astra: J beats T).</p>
-<p style="font-size:32px;line-height:1.4;color:#a7b0b8">The human picks and orders the examples.</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px 40px">
+<h3 style="font-family:'Outfit', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.2;color:#42affa">The expectations</h3>
+<p style="font-size:32px;line-height:1.4">Agreed with the team before the agent starts.</p>
+<p style="font-size:32px;line-height:1.4">Astra’s were agreed with me first, and only its suite pins the “x to y” reading.</p>
+<p style="font-size:32px;line-height:1.4;color:#a7b0b8">The agent turns them into its own test list.</p>
 </div>
 </div>
 <p style="font-size:32px;line-height:1.4;color:#a7b0b8">A small step compared to spec-driven development (spec-kit, OpenSpec)</p>
 <p style="position:absolute;left:1192px;top:160px;width:560px;font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#42affa">This talk was planned first</p>
-<p style="position:absolute;left:1192px;top:200px;width:560px;font-family:'Outfit', Arial, sans-serif;font-size:96px;font-weight:700;line-height:1;color:#42affa">~93%</p>
+<p style="position:absolute;left:1192px;top:200px;width:560px;font-family:'Outfit', Arial, sans-serif;font-size:96px;font-weight:700;line-height:1;color:#42affa">~92%</p>
 <p style="position:absolute;left:1192px;top:304px;width:560px;font-size:32px;line-height:1.4;color:#f2f1ec">of the planned slides’ text is still the first generated version</p>
 <img src="/_blob/dd279c92a42820343cee83ea35bf0e12" alt="Knowit" style="position:absolute;right:128px;bottom:64px;width:106px;height:24px;object-fit:contain;opacity:0.7">
-<aside>Callback to the todo list: test order has a huge impact on TDD flow. The order card is that slide’s claim, backed by the data. This talk as the example: we wrote and argued over the plan before generating any slides, and about 93% of the planned slides’ text (1,529 of 1,652 words) is still the first generated version. New requirements are left out: the three red/green/refactor slides imported from my old deck (with them included it is 80%). Measured per slide, so moving a slide is not a change; re-measure when the deck is final with python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor.</aside>
+<aside>Two lists that used to be one. The expectations (what must be true) are agreed with the team before the agent starts; Laforgia suggests writing them together, like a Specification by Example workshop. The test list (which unit tests, in what order) was the human’s working memory; it now belongs to the agent’s inner loop. Astra’s agreed plan also said “Read decks without modifying them”, but no test ever checked it: the gap that Expectation-Driven Development closes by making the agent prove each expectation. This talk as the example: we wrote and argued over the plan before generating any slides, and about 92% of the planned slides’ text (1,529 of 1,653 words) is still the first generated version. New requirements are left out: the three red/green/refactor slides imported from my old deck and the Expectation-Driven Development slide (with them included it is 80%). Measured per slide, so moving a slide is not a change; re-measure when the deck is final with python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd.</aside>
 </section>
