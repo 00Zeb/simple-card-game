@@ -66,6 +66,10 @@
         * It doesn't have: Fear / Boredom / Discipline inconsistency / Context switching fatigue / Not knowing where the code is going ((card))
         * It has, as badly as us or worse: Misreading the spec / Claiming done when it isn't / Blind spots in its own tests / Gold plating: Beck warns about unrequested features ((highlighted card))
         * GLM wrote the same misreading into its test and its code.
+    * What others found
+        * Birgitta Böckeler · Aug 2026: TDD prompts gave no quality gain, for 3–8.5× the tokens. ((two cards))
+        * Emily Bache · Sep 2026: That tested a prompt, not TDD. A test list and a harness are what's missing.
+        * → So I tested both: TDD by prompt, and TDD enforced by a harness. ((in blue))
     * The experiment
         * 9 + 1 / agent runs on the same kata: 9 told to do TDD, 1 told not to ((three big-number cards))
         * 2016 / my own run, live in front of an audience
@@ -87,10 +91,6 @@
         * Minimal steps | Lower a human's risk. For an agent, they led to tests that drive the code, not tests that protect it.
         * Gorman called it | The tests that drive the design aren't always good regression tests
         * "A test first, not the tests" | A human rule against overinvesting up front: GLM wrote all 7 tests first, as skipped tests. For an agent, that investment is cheap.
-    * What others found
-        * Birgitta Böckeler · Aug 2026: TDD prompts gave no quality gain, for 3–8.5× the tokens. ((two cards))
-        * Emily Bache · Sep 2026: That tested a prompt, not TDD. A test list and a harness are what's missing.
-        * → So I ran it again with a harness. ((in blue))
     * Enforcing TDD with a harness: probity
         * 11 of 12 / tests genuinely red ((big number))
         * 4 / real refactors: the most faithful TDD in the repo ((big number))
