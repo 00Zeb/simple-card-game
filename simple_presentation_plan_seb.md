@@ -39,8 +39,11 @@
         * ((code: printing a person, before and after extracting print(person)))
     * Get it out of your head and onto the list. ((statement slide, eyebrow "Brain dumping ground"))
         * Limited working memory
+            * Executable examples
     * FEAR ((huge, struck through in red; eyebrow "Merciless refactoring"))
         * The tests have your back.
+            * Freedom to refactor
+            * Safely make changes
     * The todo list
         * A dynamic buffer that keeps noise away
         * Examples of test cases
@@ -79,7 +82,6 @@
         * Design result | What the agents did ((table))
         * Composed method | Yes, in the TDD runs' refactor steps. The no-TDD run is one function.
         * Dependencies injected | No. Only my 2016 run injected the ranking.
-        * Decoupled, modular, extensible | Can't tell on a 20-line kata
         * Opus, after its refactor steps: return formatResult(scoreRounds(steve, josh)); ((code))
     * Tiny steps aren't meaningful for an agent
         * TDD as if you meant it | Tiny steps, the code grows inside the test (my 2016 run) ((two columns: blue label, text))
@@ -149,7 +151,8 @@
 
 ## how to edit (not slides)
 
-- Indentation: first level is a main slide, second level a subslide, third level one item of text on that slide.
+- Indentation: first level is a main slide, second level a subslide, third level one item of text on that slide, fourth level a smaller sub-point under the item above it.
+- The first letter of each line on a slide is capitalised.
 - Text outside double parentheses goes on the slide word for word.
 - On a main-slide line, the title comes first, then after ":" the rest of the slide's text.
 - " / " separates lines within one item.
