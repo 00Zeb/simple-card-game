@@ -87,14 +87,6 @@
         * Minimal steps | Lower a human's risk. For an agent, they led to tests that drive the code, not tests that protect it.
         * Gorman called it | The tests that drive the design aren't always good regression tests
         * "A test first, not the tests" | A human rule against overinvesting up front: GLM wrote all 7 tests first, as skipped tests. For an agent, that investment is cheap.
-    * The cost: tokens, dollars and time
-        * Run | Time | Cost | Planted bugs caught ((table))
-        * No TDD · Opus 5.5 | 29 s | $0.27 | 7 of 9 ((highlighted row))
-        * TDD by prompt · Opus 5, run 1 | 3 min 47 s | $2.07 | 8 of 9
-        * TDD by prompt · Opus 5, run 2 | 4 min 18 s | $2.72 | 5 of 9
-        * TDD enforced by probity · Opus 5.5 | 10 min 48 s | $3.54 | 6 of 9
-        * Small experiment: one run per setup, on an easy 20-line kata ((dashed box, like a sign))
-        * 8–13× the cost and 8–22× the time, with no measurable quality gain. ((in blue))
     * What others found
         * Birgitta Böckeler · Aug 2026: TDD prompts gave no quality gain, for 3–8.5× the tokens. ((two cards))
         * Emily Bache · Sep 2026: That tested a prompt, not TDD. A test list and a harness are what's missing.
@@ -105,6 +97,14 @@
         * The same result as no TDD, at 13× the cost and 22× the time
         * It dropped the tests that couldn't go red, so it caught fewer planted bugs: 6 of 9, against 7 of 9 without TDD
         * 9 of 13 blocks were false positives; resending the same edit usually got through
+    * The cost: tokens, dollars and time
+        * Run | Time | Cost | Planted bugs caught ((table))
+        * No TDD · Opus 5.5 | 29 s | $0.27 | 7 of 9 ((highlighted row))
+        * TDD by prompt · Opus 5, run 1 | 3 min 47 s | $2.07 | 8 of 9
+        * TDD by prompt · Opus 5, run 2 | 4 min 18 s | $2.72 | 5 of 9
+        * TDD enforced by probity · Opus 5.5 | 10 min 48 s | $3.54 | 6 of 9
+        * Small experiment: one run per setup, on an easy 20-line kata ((dashed box, like a sign))
+        * 8–13× the cost and 8–22× the time, with no measurable quality gain. ((in blue))
     * Are harnesses worth the cost? ((eyebrow "The new ways · Naresh Jain, Oct 2026"))
         * Model | Harness | Accepted | Time | Cost ((table))
         * Sol (frontier) | No | 10 of 10 | 6 min 51 s | ~$0.41
