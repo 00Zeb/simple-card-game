@@ -93,6 +93,7 @@
         * TDD by prompt · Opus 5, run 1 | 3 min 47 s | $2.07 | 8 of 9
         * TDD by prompt · Opus 5, run 2 | 4 min 18 s | $2.72 | 5 of 9
         * TDD enforced by probity · Opus 5.5 | 10 min 48 s | $3.54 | 6 of 9
+        * Small experiment: one run per setup, on an easy 20-line kata ((dashed box, like a sign))
         * 8–13× the cost and 8–22× the time, with no measurable quality gain. ((in blue))
     * What others found
         * Birgitta Böckeler · Aug 2026: TDD prompts gave no quality gain, for 3–8.5× the tokens. ((two cards))

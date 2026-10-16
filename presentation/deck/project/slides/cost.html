@@ -1,4 +1,4 @@
-<section id="cost" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<section id="cost" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
 <div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#42affa">The new ways</p>
 <h2 style="font-family:'Outfit', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#f2f1ec">The cost: tokens, dollars and time</h2>
@@ -10,8 +10,8 @@
 <tr style="background:rgba(255,255,255,0.05)"><td>TDD by prompt · Opus 5, run 2</td><td>4 min 18 s</td><td>$2.72</td><td>5 of 9</td></tr>
 <tr><td>TDD enforced by probity · Opus 5.5</td><td>10 min 48 s</td><td>$3.54</td><td>6 of 9</td></tr>
 </table>
-<div style="flex:1"></div>
+<div style="display:flex"><p style="font-size:32px;line-height:1.4;color:#a7b0b8;border:2px dashed #a7b0b8;border-radius:16px;padding:20px 32px">Small experiment: one run per setup, on an easy 20-line kata</p></div>
 <p style="font-size:44px;font-weight:600;line-height:1.3;color:#42affa">8–13× the cost and 8–22× the time, with no measurable quality gain.</p>
 <img src="/_blob/dd279c92a42820343cee83ea35bf0e12" alt="Knowit" style="position:absolute;right:128px;bottom:64px;width:106px;height:24px;object-fit:contain;opacity:0.7">
-<aside>Measured from the session transcripts at list prices. Opus 5 costs $5/$25 per million tokens and Opus 5.5 $4/$20, so TDD by prompt on Opus 5.5 would be about a fifth cheaper. In absolute terms the money is trivial next to an hour of developer time; the point is that nothing measurable came back for it. Two runs of the same model caught 8 of 9 and 5 of 9.</aside>
+<aside>Measured from the session transcripts at list prices. Opus 5 costs $5/$25 per million tokens and Opus 5.5 $4/$20, so TDD by prompt on Opus 5.5 would be about a fifth cheaper. In absolute terms the money is trivial next to an hour of developer time; the point is that nothing measurable came back for it. Two runs of the same model caught 8 of 9 and 5 of 9. On bigger problems: more cycles, each resending a larger context, so the overhead grows (Opus: “It scales with the ceremony, not with the difficulty”). Fair caveat: on an unfamiliar problem the benefit may grow too, because the agent no longer knows the answer. On Jain’s much larger task the frontier model’s harness still cost about 7× for no quality gain.</aside>
 </section>
