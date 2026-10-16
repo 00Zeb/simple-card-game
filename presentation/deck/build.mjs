@@ -19,6 +19,9 @@ const assets = {
   '/_blob/76d491d66b5a404514c91fb506e449e8': dataUri('assets/knowit-logo-black.svg', 'image/svg+xml'),
   '/_blob/c64cbd12e8a44e5e2dbd5e82cc2a5f8a': dataUri('assets/gold-plating-cartoon.png', 'image/png'),
   '/_blob/b72f3c219cd3d2daca882ea248c70b3e': dataUri('assets/hello-world-enterprise.png', 'image/png'),
+  '/_blob/ec28b15013170bd7a4399b89431e6a09': dataUri('assets/myth-gorman.png', 'image/png'),
+  '/_blob/a861974baafd8ae5506556f931a59d69': dataUri('assets/myth-laforgia.png', 'image/png'),
+  '/_blob/9a5ee49bedd490f722c464d8d4548367': dataUri('assets/myth-ottinger.png', 'image/png'),
 };
 
 const fonts = read('fonts/fonts.css')

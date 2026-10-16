@@ -4,6 +4,8 @@
 * The old days: What TDD is, and why it works for humans [2:00–21:00] ((section slide, eyebrow "Part 1"))
     * TDD myths
         * "TDD is writing the tests first" ((struck through in red))
+        * "TDD is about testing" ((struck through in red))
+        * ((top right: tilted, stacked crops of the original LinkedIn posts by Gorman, Laforgia and Ottinger; online they drop in one by one when presenting))
         * "You don't write 'the tests' first. You write a test first." Tim Ottinger ((three quote cards))
         * "TDD is not really about writing tests before code. It's about using tests in short-lived RGR cycles as a tool to design code." Andrea Laforgia
         * "The tests that drive our design often correspond to good regression tests, but certainly not always." Jason Gorman
