@@ -1,0 +1,26 @@
+<section id="step-refactor" style="background:#050505;color:#f2f1ec;font-family:'Inter', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#42affa">The old days</p>
+<h2 style="font-family:'Outfit', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#f2f1ec"><span style="color:#42affa">Refactor</span> as needed</h2>
+</div>
+<div style="display:flex;gap:64px;flex:1;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:44px;font-weight:300;line-height:1.3"><span style="color:#42affa">→ </span>Refactoring ≠ redesign</p>
+<p style="font-size:44px;font-weight:300;line-height:1.3"><span style="color:#42affa">→ </span>As simple an implementation as possible for today’s needs</p>
+<p style="font-size:44px;font-weight:300;line-height:1.3"><span style="color:#42affa">→ </span>Easier when backed by tests</p>
+</div>
+<div style="width:740px;display:flex;flex-direction:column;align-items:center;gap:16px">
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:28px;line-height:1.4;white-space:nowrap;color:#f2f1ec;background:#0c1824;border-radius:12px;padding:24px 32px;width:740px">
+<span style="color:#a7b0b8">//...</span><br>Person p = getPerson(socialSecNr);<br><span style="color:#a7b0b8">//print the person</span><br>System.out.println(p.getFirstName());<br>System.out.println(p.getLastName());<br>System.out.println(p.getSocialSecNr());</p>
+<svg width="40" height="40" viewBox="0 0 40 40"><path d="M14 0 H26 V22 H36 L20 40 L4 22 H14 Z" fill="#42affa"/></svg>
+<p style="font-family:'Fira Code', 'Courier New', monospace;font-size:28px;line-height:1.4;white-space:nowrap;color:#f2f1ec;background:#0c1824;border-radius:12px;padding:24px 32px;width:740px">
+<span style="color:#a7b0b8">//...</span><br>Person person = getPerson(socialSecNr);<br>print(person);</p>
+</div>
+</div>
+<div style="position:absolute;left:1312px;top:128px;width:480px;height:112px"><svg aria-label="The red, green, refactor cycle with Refactor highlighted" width="480" height="112" viewBox="0 0 480 112"><rect x="1.5" y="1.5" width="133" height="49" rx="10" fill="#111111" stroke="#ff6b6b" stroke-width="3" stroke-opacity="0.6"/><rect x="173.5" y="1.5" width="133" height="49" rx="10" fill="#111111" stroke="#5fd38d" stroke-width="3" stroke-opacity="0.6"/><rect x="345.5" y="1.5" width="133" height="49" rx="10" fill="#42affa" stroke="#42affa" stroke-width="3"/><path d="M140 26 H158" stroke="#a7b0b8" stroke-width="3"/><path d="M156 19 L168 26 L156 33 Z" fill="#a7b0b8"/><path d="M312 26 H330" stroke="#a7b0b8" stroke-width="3"/><path d="M328 19 L340 26 L328 33 Z" fill="#a7b0b8"/><path d="M240 52 V80 H82 V64" fill="none" stroke="#5fd38d" stroke-width="3" stroke-opacity="0.6"/><path d="M76 64 L82 54 L88 64 Z" fill="#5fd38d" fill-opacity="0.6"/><path d="M412 52 V104 H54 V64" fill="none" stroke="#42affa" stroke-width="3"/><path d="M48 64 L54 54 L60 64 Z" fill="#42affa"/></svg></div>
+<p style="position:absolute;left:1312px;top:137px;width:136px;font-family:'Outfit', Arial, sans-serif;font-size:24px;font-weight:700;line-height:1.4;text-align:center;color:#ff6b6b">Red</p>
+<p style="position:absolute;left:1484px;top:137px;width:136px;font-family:'Outfit', Arial, sans-serif;font-size:24px;font-weight:700;line-height:1.4;text-align:center;color:#5fd38d">Green</p>
+<p style="position:absolute;left:1656px;top:137px;width:136px;font-family:'Outfit', Arial, sans-serif;font-size:24px;font-weight:700;line-height:1.4;text-align:center;color:#050505">Refactor</p>
+<img src="/_blob/dd279c92a42820343cee83ea35bf0e12" alt="Knowit" style="position:absolute;right:128px;bottom:64px;width:106px;height:24px;object-fit:contain;opacity:0.7">
+<aside>From the old deck. Same behaviour, clearer code, safe because the tests are green. print(person) is composed method, one of the design results from the definition slide.</aside>
+</section>

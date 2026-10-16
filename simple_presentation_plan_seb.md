@@ -1,5 +1,5 @@
 * TDD in the Agentic Era: What we keep, what we leave behind / Sebastian Larsson [0:00] ((cover))
-* Sebastian Larsson: Developer / Trainer / Manager / 12 years teaching TDD / "I'm not a great programmer; I'm just a good programmer with great habits." Kent Beck [0:30–1:30] ((eyebrow "Who am I"; roles on the left, the quote in a box on the right))
+* Sebastian Larsson: Developer / Trainer / Manager / 14 years teaching TDD / "I'm not a great programmer; I'm just a good programmer with great habits." Kent Beck [0:30–1:30] ((eyebrow "Who am I"; roles on the left, the quote in a box on the right))
 * TDD is a habit. Agents don't have habits, they have instructions. / I no longer think agents should do TDD the way I taught it. [1:30–2:00] ((statement slide; second line in blue))
 * The old days: What TDD is, and why it works for humans [2:00–21:00] ((section slide, eyebrow "Part 1"))
     * TDD myths
