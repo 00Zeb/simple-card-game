@@ -1,0 +1,296 @@
+/**
+ * Reveal.js Presentation Custom Styles
+ * Knowit Agent Academy
+ *
+ * Typography Standards:
+ * - Base font size: 42px for body, 64px for h2
+ * - Line height: 1.4 for body, 1.2 for headings
+ * - Code font size: Min 28px, prefer 32px
+ * - No font sizes below 24px
+ */
+
+:root {
+    --r-main-font: 'Inter', sans-serif;
+    --r-heading-font: 'Outfit', sans-serif;
+    --r-heading-color: #fff;
+    --r-selection-background: #42affa;
+    --r-link-color: #42affa;
+    --r-link-color-hover: #82cfff;
+
+    /* Knowit Brand Colors */
+    --knowit-accent: #42affa;
+    --knowit-dark: #050505;
+    --knowit-activity-bg: #073642;
+}
+
+/* Base slide styling */
+.reveal {
+    background: var(--knowit-dark);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    text-transform: none;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.reveal h1 {
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 20px;
+}
+
+.reveal section {
+    font-weight: 300;
+}
+
+/**
+ * TYPOGRAPHY STANDARDS
+ * Enforce minimum font sizes and proper line heights
+ */
+.reveal p,
+.reveal ul,
+.reveal ol,
+.reveal td {
+    font-size: 42px;
+    line-height: 1.4;
+}
+
+.reveal h2 {
+    font-size: 64px;
+    margin-bottom: 30px;
+}
+
+.reveal h3 {
+    font-size: 52px;
+}
+
+.reveal h4 {
+    font-size: 42px;
+}
+
+/* Code styling - minimum 28px */
+.reveal pre {
+    font-size: 32px;
+    line-height: 1.3;
+}
+
+.reveal code {
+    font-size: 32px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.reveal pre code {
+    max-height: 70vh;
+    overflow: auto;
+}
+
+/* Small text for fine print only - absolute minimum 24px */
+.reveal small,
+.reveal .small {
+    font-size: 28px;
+}
+
+/**
+ * CONTENT LIMITS & OVERFLOW PREVENTION
+ * These rules help prevent content from overflowing slides
+ */
+
+/* Ensure content fits within slides */
+.reveal .slides section {
+    max-height: 100%;
+    overflow: hidden;
+}
+
+/* List styling */
+.reveal ul {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.reveal ul li::before {
+    content: "→";
+    color: var(--knowit-accent);
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* Fragment styling */
+.reveal .fragment {
+    max-height: inherit;
+}
+
+.reveal .slides section .fragment {
+    max-height: inherit;
+}
+
+/**
+ * TABLE STYLING
+ * Max 4 rows × 3 columns recommended
+ */
+.reveal table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 30px;
+    font-size: 38px;
+}
+
+.reveal table thead th {
+    border-bottom: 2px solid var(--knowit-accent);
+    padding: 15px;
+    font-family: var(--r-heading-font);
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+}
+
+.reveal table tbody td {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border: none;
+    backdrop-filter: blur(10px);
+}
+
+.reveal table tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.reveal table tbody tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/**
+ * HIGHLIGHT BOXES
+ * Glassmorphism effect
+ */
+.highlight-box {
+    background: rgba(66, 175, 250, 0.1);
+    border: 1px solid rgba(66, 175, 250, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.fragment.fade-up.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/**
+ * CUSTOM SCROLLBAR
+ * For when content is slightly too large
+ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--knowit-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--knowit-accent);
+}
+
+/**
+ * BRANDING LOGO
+ * Positioned at bottom right
+ */
+.branding-logo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 120px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.branding-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.reveal:hover .branding-logo {
+    opacity: 1;
+}
+
+/**
+ * ACTIVITY SLIDES
+ * Distinct background color
+ */
+.activity-slide {
+    background-color: var(--knowit-activity-bg) !important;
+}
+
+/**
+ * COMPACT SLIDE MODIFIER
+ * Use when you need slightly more content density
+ */
+.compact-slide h2 {
+    font-size: 56px !important;
+}
+
+.compact-slide p {
+    font-size: 36px !important;
+}
+
+.compact-slide ul {
+    font-size: 36px !important;
+}
+
+/**
+ * SPECIAL EFFECTS
+ */
+/* Squiggles underline effect */
+.squiggles {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ff6b6b;
+    text-underline-offset: 4px;
+}
+
+/* Code block with filename */
+.code-block-filename {
+    background: rgba(66, 175, 250, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 28px;
+    font-family: 'Fira Code', monospace;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.code-block-filename + pre {
+    margin-top: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+/**
+ * ANIMATIONS
+ */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
