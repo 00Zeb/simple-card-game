@@ -75,7 +75,7 @@
         * 46% / of tests passed as soon as they were written (26 of 57): the agent already knew the answer ((big number))
         * GLM: 7 of 7 genuine reds, every commit labelled correctly, and it ships "Josh wins 1 to 2"
         * Ten implementations, one design: a rank string, indexOf, two counters
-        * By Laforgia's definition (tests as a tool to design code), the agents did test-first, not TDD
+        * On this kata, following TDD didn't change the agents' design. It only tidied it.
         * Reflections: one copied from another model, one cites commit hashes that don't exist
     * Did the design emerge? ((eyebrow "The new ways · My definition as the scorecard"))
         * Design result | What the agents did ((table))
@@ -174,7 +174,7 @@
 - Callbacks to rehearse:
     - habits (whoami) → the hook;
     - Ottinger → tiny steps (GLM's skipped tests);
-    - Laforgia → the charade slide;
+    - Laforgia → the charade slide (say it: by his definition, design untouched by the tests isn't TDD);
     - Gorman → tiny steps and mutation testing;
     - design results (definition) → the scorecard;
     - test order (todo list) → planning.
