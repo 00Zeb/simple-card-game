@@ -126,6 +126,7 @@
         * Inner loop, red/green/refactor: the agent
         * Isn't this just ATDD/BDD again? Yes, and that's the point. ((in blue))
     * Planning
+        * This talk was planned first: ~93% / of the planned slides' text is still the first generated version ((box top right; re-measure when the deck is final))
         * Why? To not have to redo, and to make sure interpretations are correct.
         * The ambiguity: GLM's "Josh wins 1 to 2": no agent's TDD caught the "x to y" ambiguity. / A human reading the test list would have caught it in seconds. ((two cards))
         * The order: The only reds that changed the code came from face cards after number cards (Opus 5: A beats K, Astra: J beats T). / The human picks and orders the examples.
@@ -175,4 +176,5 @@
     - design results (definition) → the scorecard;
     - test order (todo list) → planning.
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
+- When the deck is final, re-measure the planning slide's ~93% with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
