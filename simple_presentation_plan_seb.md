@@ -74,7 +74,7 @@
         * 9 + 1 / agent runs on the same kata: 9 told to do TDD, 1 told not to ((three big-number cards))
         * 2016 / my own run, live in front of an audience
         * 9 / planted bugs via mutation testing, plus an acceptance suite the agents never saw
-        * Every red and green replayed from the git history
+        * Every red and green replayed and analyzed from the git history
     * Agentic TDD skills: it looks good, but it's a charade
         * 46% / of tests passed as soon as they were written (26 of 57): the agent already knew the answer ((big number))
         * GLM: 7 of 7 genuine reds, every commit labelled correctly, and it ships "Josh wins 1 to 2"
