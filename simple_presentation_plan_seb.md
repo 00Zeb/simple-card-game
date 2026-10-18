@@ -30,8 +30,8 @@
         * Prevents gold plating
         * ((the cartoon: "Hmm, I will probably need this functionality soon!"))
     * Gold plating
-        * ((the 46-line Hello World screenshot))
-        * 46 / lines of Java to print "Hello World!", with a strategy, an abstract factory and a singleton ((big number))
+        * 46 / lines of code with strategy, abstract factory and singleton patterns! ((big number, top right next to the title))
+        * ((the 46-line Hello World as real code in two columns, keywords in blue, "Hello World!" in green))
     * Refactor as needed
         * Refactoring ≠ redesign
         * As simple an implementation as possible for today's needs
@@ -185,7 +185,7 @@
     - Laforgia (myths) → Expectation-Driven Development;
     - the close's three lines → examples, move up a loop, and Laforgia's different fox (only tests GLM and Gemma didn't write caught their bugs).
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
-- The planning slide's ~76% was measured 2026-10-17 after the review round (86% before it; 55% with the new-requirement slides included). If slides change, re-measure with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
+- The planning slide's ~76% was measured 2026-10-17 after the review round (86% before it; 60% with the new-requirement slides included; images and code blocks are ignored). If slides change, re-measure with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
 - Sources added 2026-10-16 (quotes on the vertical slicing and move-up-a-loop slides):
     - Jason Gorman, LinkedIn, Oct 2026, "the spec is never right": https://lnkd.in/p/d3ZyQ4hs ("Adapting to feedback is the real requirements discipline.") A counterweight for planning/EDD; supports vertical slicing.

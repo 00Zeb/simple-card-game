@@ -1,6 +1,7 @@
 # How much of the deck's visible slide text is unchanged since the first generated version?
 # Each slide is compared with its own earlier version, so moving a slide doesn't count as rewriting it.
-# Speaker notes, code-free images and diagrams are ignored; new slides count as changed text.
+# Speaker notes, images, diagrams and code blocks are ignored (code first shown as an image shouldn't count
+# as new text once it's typed out); new slides count as changed text.
 #
 #   python3 presentation/deck/measure-changes.py [baseline-commit] [--exclude id,id,...]
 #
@@ -30,7 +31,7 @@ def read(path, commit=None):
 
 
 def visible_words(slide):
-    text = re.sub(r'<aside>.*?</aside>|<svg.*?</svg>', ' ', slide, flags=re.S)
+    text = re.sub(r'<aside>.*?</aside>|<svg.*?</svg>|<p style="font-family:\'Fira Code\'.*?</p>', ' ', slide, flags=re.S)
     text = html.unescape(re.sub(r'<[^>]+>', ' ', text))
     return re.findall(r"[\w’'.%$×–-]+|[^\s\w]", text)
 
