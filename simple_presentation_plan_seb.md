@@ -4,8 +4,8 @@
 * Agenda: 1 The old days / What TDD is, why it works for humans, and a live demo / 2 The new ways / What happened when agents were told to do TDD / 3 The way forward / What to leave behind, and what to do instead [2:00–2:15] ((eyebrow "Today"; three numbered rows))
 * The old days: What TDD is, and why it works for humans [2:00–21:00] ((section slide, eyebrow "Part 1"))
     * TDD myths
-        * "TDD is writing the tests first" ((struck through in red))
         * "TDD is about testing" ((struck through in red))
+        * "TDD is writing the tests first" ((struck through in red))
         * ((top right: tilted, stacked crops of the original LinkedIn posts by Gorman, Laforgia and Ottinger; online they drop in one by one when presenting))
         * "You don't write 'the tests' first. You write a test first." Tim Ottinger ((three quote cards))
         * "TDD is not really about writing tests before code. It's about using tests in short-lived RGR cycles as a tool to design code." Andrea Laforgia
@@ -19,7 +19,7 @@
         * Red: Consumption awareness: the test is the code's first client / Verify that the test is useful / Improves testability ((three cards with arrows between them; arrows back to Red from Green and from Refactor))
         * Green: Implement the change / Done, although maybe not / Prevents gold plating
         * Refactor: Refactoring ≠ redesign / As simple as possible for today's needs / Easier when backed by tests
-        * Each step answers a human limitation.
+        * A cycle built around human limitations
     * Red: create a failing test ((miniature of the overview top right, Red highlighted; same on the next steps))
         * Consumption awareness / Verify that the test is useful / Improves testability ((red-outlined chips))
         * ((code: the calculator test, fixed so it can go red: assertThat(actual, is(expected))))
@@ -37,12 +37,13 @@
         * As simple an implementation as possible for today's needs
         * Easier when backed by tests
         * ((code: printing a person, before and after extracting print(person)))
-    * Get it out of your head and onto the list. ((statement slide, eyebrow "Brain dumping ground"))
-        * Limited working memory
-            * Executable examples
+    * Get it out of your head and into the code. ((statement slide, eyebrow "Brain dumping ground"))
+        * Less cognitive load (context)
+        * Executable examples
+        * Sharper focus
     * FEAR ((huge, struck through in red; eyebrow "Merciless refactoring"))
         * The tests have your back.
-            * Freedom to refactor
+            * Freedom to refactor and experiment
             * Safely make changes
     * The todo list
         * A dynamic buffer that keeps noise away
@@ -55,15 +56,15 @@
         * "Steve wins x to y", "Josh wins x to y" or "Tie"
         * RED / GREEN / REFACTOR ((traffic light on the right))
     * The evidence for humans
-        * 40–90% / fewer pre-release defects in four industrial teams (Nagappan et al. 2008, Microsoft and IBM) ((big number))
-        * 15–35% / more development time, as the teams themselves estimated it ((big number))
+        * 40–90% / fewer defects in four industrial teams (Nagappan et al. 2008, Microsoft and IBM) ((big number; "fewer defects" highlighted in green))
+        * 15–35% / more development time, as the teams themselves estimated it ((big number; "more development time" highlighted in red))
         * Fucci et al. 2017: short, steady cycles mattered more than writing the test first
         * Ghafari et al. 2020: studies disagree mostly because they're set up differently
         * Every step answers a human limitation. Which of them does an agent actually have? ((in blue, at the bottom))
 * The new ways: What happened when agents were told to do TDD [21:00–36:00] ((section slide, eyebrow "Part 2"))
     * Which of TDD's benefits does an agent need? ((eyebrow "The new ways · An agent ≠ a human"))
-        * It doesn't have: Fear / Boredom / Discipline inconsistency / Context switching fatigue / Not knowing where the code is going ((card))
-        * It has, as badly as us or worse: Misreading the spec / Claiming done when it isn't / Blind spots in its own tests / Gold plating: Beck warns about unrequested features ((highlighted card))
+        * It doesn't have: Fear / Boredom / Context switching fatigue / Not knowing where the code is going ((card))
+        * It has, as badly as us or worse: Misreading the spec / Claiming done when it isn't / Blind spots in its own tests / Gold plating / Discipline inconsistency ((highlighted card))
         * In my experiment, one agent wrote the same misreading into its test and its code.
     * What others found
         * Birgitta Böckeler · Aug 2026: TDD prompts gave no quality gain, for 3–8.5× the tokens. ((two cards))
@@ -87,7 +88,7 @@
         * On this kata, following TDD didn't change the agents' design. It only tidied it.
     * Tiny steps are less meaningful for an agent
         * Fake it | Increases cycle speed for humans. An agent doesn't need this detour. ((two columns: blue label, text))
-        * Minimal steps | Lower a human's risk. For an agent, they led to tests that drive the code, not tests that protect it.
+        * Minimal steps | Lower a human's risk. An agent doesn't need to play it this safe.
         * Gorman called it | The tests that drive the design aren't always good regression tests
         * "A test first, not the tests" | A human rule against overinvesting up front: GLM wrote all 7 tests first, as skipped tests. For an agent, that investment is cheap.
     * Enforcing TDD with a harness: probity
@@ -133,9 +134,9 @@
         * ((diagram on the left: two nested loops, "Outer loop / The human" and "Inner loop / The agent"))
         * The double loop from Growing Object-Oriented Software (Freeman & Pryce, 2009)
         * Outer loop, acceptance tests: the human
-        * Inner loop, its own way: the agent
+        * Inner loop, agent decides
         * "A human still owns what ships but now they're reviewing evidence and not just diffs." Addy Osmani ((quote box))
-        * Isn't this just ATDD/BDD again? Yes. What changed: the agreed examples are the one thing you can't hand to the agent. ((in blue))
+        * Just ATDD/BDD again? Yes. But the examples stay with you. ((in blue))
     * Use acceptance-test-driven examples to specify desired behaviour
         * This experiment: Only tests the same agent didn't write caught GLM's and Gemma's bugs ((three cards))
         * Mathews & Nagappan 2024: Tests given with the task help LLMs
@@ -184,7 +185,7 @@
     - Laforgia (myths) → Expectation-Driven Development;
     - the close's three lines → examples, move up a loop, and Laforgia's different fox (only tests GLM and Gemma didn't write caught their bugs).
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
-- The planning slide's ~76% was measured 2026-10-17 after the review round (86% before it; 56% with the new-requirement slides included). If slides change, re-measure with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
+- The planning slide's ~76% was measured 2026-10-17 after the review round (86% before it; 55% with the new-requirement slides included). If slides change, re-measure with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
 - Sources added 2026-10-16 (quotes on the vertical slicing and move-up-a-loop slides):
     - Jason Gorman, LinkedIn, Oct 2026, "the spec is never right": https://lnkd.in/p/d3ZyQ4hs ("Adapting to feedback is the real requirements discipline.") A counterweight for planning/EDD; supports vertical slicing.
@@ -196,7 +197,7 @@ From the review on 2026-10-17 (`deck_review_2026-10-17.md`):
 
 - F5: Jain's "independent acceptance gate". His 178 acceptance tests judged all four setups, with and without the harness, so the gate wasn't part of the harness. Affects the Jain slide, "Jain's harness is the same idea, tested at scale" on the examples slide, and "Böckeler's and Jain's larger studies" in the experiment notes.
 - F6: the cost slide's 8× compares Opus 5 prices with Opus 5.5 prices (about 6× like for like). Fixes itself if all the models are re-run.
-- C4: "Discipline inconsistency" may be something human and agent share (seb's RED labels without reds, Opus ahead of its tests, probity's reason to exist).
 - C8: the planning slide's % box (now ~76%). Part 1 comes from my 2013 deck, and I give the talk: I can't present what I can't talk about, which is why planning matters.
 - I3: Kent Beck's "Augmented Coding: Beyond the Vibes" (June 2025), maybe in "What others found".
+- Plain-language pass (klarspråk; ISO 24495-1, Plain Writing Act) over the whole deck, once the edits are done: a file with the wordiest lines, shorter versions and word counts, to pick from here.
 
