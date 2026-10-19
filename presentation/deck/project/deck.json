@@ -15,7 +15,7 @@
     "s1": { "description": "Who I am, and why I changed my mind about TDD for agents", "start": "cover" },
     "s2": { "description": "The old days: what TDD is, why it works for humans, and a live demo", "start": "old-days" },
     "s3": { "description": "The new ways: what happened when agents were told to do TDD", "start": "new-ways" },
-    "s4": { "description": "The way forward: what to leave behind and what to do instead", "start": "way-forward" },
+    "s4": { "description": "This is the way: what to leave behind and what to do instead", "start": "way-forward" },
     "s5": { "description": "Closing line and questions", "start": "close" }
   },
   "faces": {

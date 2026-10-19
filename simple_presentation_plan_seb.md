@@ -1,8 +1,8 @@
 * TDD in the Agentic Era: What we keep, what we leave behind / Sebastian Larsson [0:00] ((cover))
 * Sebastian Larsson: Developer / Trainer / Manager / Certifying developers in TDD since 2014 / "I'm not a great programmer; I'm just a good programmer with great habits." Kent Beck [0:30–1:30] ((eyebrow "Who am I"; roles on the left, the quote in a box on the right))
 * TDD is a habit. Agents don't have habits, they have instructions. / I no longer think agents should do TDD the way I taught it. [1:30–2:00] ((statement slide; second line in blue))
-* Agenda: 1 The old days / What TDD is, why it works for humans, and a live demo / 2 The new ways / What happened when agents were told to do TDD / 3 The way forward / What to leave behind, and what to do instead [2:00–2:15] ((eyebrow "Today"; three numbered rows))
-* The old days: What TDD is, and why it works for humans [2:00–21:00] ((section slide, eyebrow "Part 1"))
+* Agenda: 1 The old days / What TDD is, why it works for humans, and a live demo / 2 The new ways / What happened when agents were told to do TDD / 3 This is the way / What to leave behind, and what to do instead [2:00–2:15] ((eyebrow "Today"; three numbered rows))
+* The old days: What TDD is, and why it works for humans [2:00–21:00] ((section slide, eyebrow "Part 1"; full-bleed photo "Old Ways, Stone by Stone", text top left))
     * TDD myths
         * "TDD is about testing" ((struck through in red))
         * "TDD is writing the tests first" ((struck through in red))
@@ -61,7 +61,7 @@
         * Fucci 2017: steady, short cycles mattered more than test-first
         * Ghafari 2020: studies disagree mostly because their setups differ
         * Built around human limitations. Which ones does an agent have? ((in blue, at the bottom))
-* The new ways: What happened when agents were told to do TDD [21:00–36:00] ((section slide, eyebrow "Part 2"))
+* The new ways: What happened when agents were told to do TDD [21:00–36:00] ((section slide, eyebrow "Part 2"; full-bleed photo "Rocket-thrust Roadster at Dawn", text top left))
     * Which of TDD's benefits does an agent need? ((eyebrow "The new ways · An agent ≠ a human"))
         * It doesn't have: Fear / Boredom / Context switching fatigue / Not knowing where the code is going ((card))
         * Just like us, or worse: Misreading the spec / Claiming done when it isn't / Blind spots in its own tests / Gold plating / Discipline inconsistency ((highlighted card))
@@ -113,8 +113,8 @@
         * Luna (cheap) | Yes | 10 of 10 | 35 min | ~$0.27
         * His harness isn't TDD: specs and examples to guide the agent, plus checks it runs itself
         * Frontier model: one independent check at the end. Cheap model: checks throughout. ((in blue))
-* The way forward: For the coming year [36:00–42:00] ((section slide, eyebrow "Part 3"))
-    * What we keep, what we leave behind ((eyebrow "The way forward · For the agent"))
+* This is the way: For the coming year [36:00–42:00] ((section slide, eyebrow "Part 3"; full-bleed photo "The Way Forward at Dawn", text top left; a tribute to The Mandalorian))
+    * What we keep, what we leave behind ((eyebrow "This is the way · For the agent"))
         * Keep: Examples agreed before any code / A check the agent didn't write / A failing test first for every bug / Refactoring on green ((highlighted card, green ticks))
         * Leave behind: Fake it and minimal green / Forcing the smallest step / A perfect process as proof of quality / Red as the proof that a test can fail ((card, struck through in red))
         * → Keep the proof, drop the ritual: mutation-test afterwards instead (Gorman, Böckeler) ((at the bottom))
@@ -143,7 +143,7 @@
         * Konstantinou et al. 2026: 14% vs 25% / faults found by tests written after faulty code vs. independent tests
         * Jain: specs, examples and checks lifted a cheap model from 3 to 10 of 10
         * An example can be checked; a sentence can be misread. ((in blue))
-    * Expectation-Driven Development ((eyebrow "The way forward · Andrea Laforgia, Mar 2026"))
+    * Expectation-Driven Development ((eyebrow "This is the way · Andrea Laforgia, Mar 2026"))
         * Write the expectations in plain text, before any code ((numbered 1–3 on the left))
         * The agent proves each one by running it, not by describing it
         * "The fox can guard the henhouse if there's a different fox checking the first fox's work." Andrea Laforgia ((quote box on the right))
@@ -162,7 +162,7 @@
 - " | " separates table cells; the first row is the header.
 - `((...))` holds notes, questions and layout hints for Claude. It never appears on a slide.
 - `[m:ss]` is timing. It never appears on a slide.
-- The small blue label above each title is the section name ("The old days", "The new ways", "The way forward") unless a `((eyebrow ...))` note says otherwise.
+- The small blue label above each title is the section name ("The old days", "The new ways", "This is the way") unless a `((eyebrow ...))` note says otherwise.
 - Straight quotes and apostrophes become typographic ones on the slides.
 - Speaker notes live in the deck, not here. Ask for changes with a `((notes: ...))` comment.
 
@@ -189,7 +189,7 @@
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
 - Sources added 2026-10-16 (quotes on the vertical slicing and move-up-a-loop slides):
     - Jason Gorman, LinkedIn, Oct 2026, "the spec is never right": https://lnkd.in/p/d3ZyQ4hs ("Adapting to feedback is the real requirements discipline.") A counterweight for planning/EDD; supports vertical slicing.
-    - Addy Osmani, "Agentic verification", 14 Oct 2026: https://addyo.substack.com/p/agentic-verification ("A human still owns what ships but now they're reviewing evidence and not just diffs." "Example tests say what should happen; properties say what must not.") Backs the way forward; our acceptance suite's 1000 random games against a reference implementation is his differential testing.
+    - Addy Osmani, "Agentic verification", 14 Oct 2026: https://addyo.substack.com/p/agentic-verification ("A human still owns what ships but now they're reviewing evidence and not just diffs." "Example tests say what should happen; properties say what must not.") Backs part 3 (This is the way); our acceptance suite's 1000 random games against a reference implementation is his differential testing.
 
 ## parked for later (not slides)
 

@@ -22,6 +22,9 @@ const assets = {
   '/_blob/ec28b15013170bd7a4399b89431e6a09': dataUri('assets/myth-gorman.png', 'image/png'),
   '/_blob/a861974baafd8ae5506556f931a59d69': dataUri('assets/myth-laforgia.png', 'image/png'),
   '/_blob/9a5ee49bedd490f722c464d8d4548367': dataUri('assets/myth-ottinger.png', 'image/png'),
+  '/_blob/0d41c3060668c6909bede0bc4b9118c3': dataUri('assets/part1-old-days.jpg', 'image/jpeg'),
+  '/_blob/474c4cd21352e0d81f24511608b2f523': dataUri('assets/part2-new-ways.jpg', 'image/jpeg'),
+  '/_blob/ba9cd3996ce10338b698886fa2a9a999': dataUri('assets/part3-this-is-the-way.jpg', 'image/jpeg'),
 };
 
 const fonts = read('fonts/fonts.css')
