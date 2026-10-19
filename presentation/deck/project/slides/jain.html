@@ -12,9 +12,9 @@
 </table>
 <div style="flex:1"></div>
 <div style="display:flex;flex-direction:column;gap:24px">
-<p style="font-size:32px;line-height:1.4"><span style="color:#42affa">→ </span>His harness isn’t TDD: human-written specs and examples, plus an independent acceptance gate</p>
+<p style="font-size:32px;line-height:1.4"><span style="color:#42affa">→ </span>His harness isn’t TDD: specs and examples to guide the agent, plus checks it runs itself</p>
 <p style="font-size:32px;font-weight:600;line-height:1.4;color:#42affa">Frontier model: one independent check at the end. Cheap model: checks throughout.</p>
 </div>
 <img src="/_blob/dd279c92a42820343cee83ea35bf0e12" alt="Knowit" style="position:absolute;right:128px;bottom:64px;width:106px;height:24px;object-fit:contain;opacity:0.7">
-<aside>“Are Harnesses Worth the Cost?”, martinfowler.com, 13 Oct 2026. A greenfield Java backend-for-frontend, 10 runs per arm, judged by 178 external acceptance tests. The harness took the cheap model from 3 of 10 to 10 of 10, and harnessed Luna still cost about a third less than unharnessed Sol. His recommendation matches this talk: for frontier models, run the independent check once as a final gate; for cheaper models, run it throughout.</aside>
+<aside>“Are Harnesses Worth the Cost?”, martinfowler.com, 13 Oct 2026. A greenfield Java backend-for-frontend, 10 runs per arm. All four setups were judged by the same 178 external acceptance tests: that suite is the referee, not part of the harness. The harness took the cheap model from 3 of 10 to 10 of 10, and harnessed Luna still cost about a third less than unharnessed Sol. His recommendation matches this talk: for frontier models, run the independent check once as a final gate; for cheaper models, run it throughout.</aside>
 </section>

@@ -111,7 +111,7 @@
         * Sol (frontier) | Yes | 10 of 10 | 19 min 53 s | ~$2.68
         * Luna (cheap) | No | 3 of 10 | 15 min 56 s | ~$0.09
         * Luna (cheap) | Yes | 10 of 10 | 35 min | ~$0.27
-        * His harness isn't TDD: human-written specs and examples, plus an independent acceptance gate
+        * His harness isn't TDD: specs and examples to guide the agent, plus checks it runs itself
         * Frontier model: one independent check at the end. Cheap model: checks throughout. ((in blue))
 * The way forward: For the coming year [36:00–42:00] ((section slide, eyebrow "Part 3"))
     * What we keep, what we leave behind ((eyebrow "The way forward · For the agent"))
@@ -119,7 +119,7 @@
         * Leave behind: Fake it and minimal green / Forcing the smallest step / A perfect process as proof of quality / Red as the proof that a test can fail ((card, struck through in red))
         * → Keep the proof, drop the ritual: mutation-test afterwards instead (Gorman, Böckeler) ((at the bottom))
     * Planning
-        * This talk was planned first: ~70% / of the planned slides' text is still the first generated version ((box top right; measured 2026-10-17 when the deck was final))
+        * This talk was planned first: ~70% / of the text is still the first draft, after every review round ((box top right; measured 2026-10-17 when the deck was final))
         * Why? Less rework, and mutual understanding.
         * The ambiguity: GLM's "Josh wins 1 to 2": no agent's TDD caught the "x to y" ambiguity. / One agreed example, "Josh wins 2 to 1", would have caught it in seconds. ((two cards))
         * The expectations: Agreed with the team before the agent starts. / Astra agreed them with me first. Its suite is the only TDD one that pins down "x to y". / The agent turns them into its own test list.
@@ -133,15 +133,15 @@
     * Move up a loop
         * ((diagram on the left: two nested loops, "Outer loop / The human" and "Inner loop / The agent"))
         * The double loop from Growing Object-Oriented Software (Freeman & Pryce, 2009)
-        * Outer loop, acceptance tests: the human
+        * Outer loop, agreed examples: the human
         * Inner loop, agent decides
         * "A human still owns what ships but now they're reviewing evidence and not just diffs." Addy Osmani ((quote box))
-        * Just ATDD/BDD again? Yes. But the examples stay with you. ((in blue))
+        * Just BDD again? Yes. But the examples stay with you. ((in blue))
     * Specify behaviour with examples
         * This experiment: Only tests GLM and Gemma didn't write caught their bugs ((three cards))
         * Mathews & Nagappan 2024: Tests given with the task help LLMs
         * Konstantinou et al. 2026: 14% vs 25% / faults found by tests written after faulty code vs. independent tests
-        * Jain's harness is the same idea, tested at scale
+        * Jain: specs, examples and checks lifted a cheap model from 3 to 10 of 10
         * An example can be checked; a sentence can be misread. ((in blue))
     * Expectation-Driven Development ((eyebrow "The way forward · Andrea Laforgia, Mar 2026"))
         * Write the expectations in plain text, before any code ((numbered 1–3 on the left))
@@ -185,7 +185,7 @@
     - Laforgia (myths) → Expectation-Driven Development;
     - the close's three lines → examples, move up a loop, and Laforgia's different fox (only tests GLM and Gemma didn't write caught their bugs).
 - Say "n = 1 per setup" on the experiment slide, before anyone asks.
-- The planning slide's ~70% was measured 2026-10-19 after the plain-language pass (86% when first called final, 76% after the review round; 55% with the new-requirement slides included; images and code blocks are ignored). If slides change, re-measure with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
+- The planning slide's ~70% (68.9%, shown as ~70% by choice) was measured 2026-10-19 after the plain-language pass and the F5/C8 fixes (86% when first called final, 76% after the review round; 54% with the new-requirement slides included; images and code blocks are ignored). If slides change, re-measure with `python3 presentation/deck/measure-changes.py --exclude step-red,step-green,step-refactor,edd,agenda,references` (baseline: commit 70571dd, the first generated deck; new-requirement slides excluded) and update the number.
 - Every number comes from PRESENTATION.md: §1 (experiment), §2.2 and §2.3 (charade), §2.4 (cost), §2.9 (probity). Jain's numbers are in PRESENTATION_PLAN.md §2. The composed-method example is `src/cardsGame.js` on `llm-claude-opus`; the one-function no-TDD version is on `llm-no-tdd-opus5.5`.
 - Sources added 2026-10-16 (quotes on the vertical slicing and move-up-a-loop slides):
     - Jason Gorman, LinkedIn, Oct 2026, "the spec is never right": https://lnkd.in/p/d3ZyQ4hs ("Adapting to feedback is the real requirements discipline.") A counterweight for planning/EDD; supports vertical slicing.
@@ -195,8 +195,5 @@
 
 From the review on 2026-10-17 (`deck_review_2026-10-17.md`):
 
-- F5: Jain's "independent acceptance gate". His 178 acceptance tests judged all four setups, with and without the harness, so the gate wasn't part of the harness. Affects the Jain slide, "Jain's harness is the same idea, tested at scale" on the examples slide, and "Böckeler's and Jain's larger studies" in the experiment notes.
-- F6: the cost slide's 8× compares Opus 5 prices with Opus 5.5 prices (about 6× like for like). Fixes itself if all the models are re-run.
-- C8: the planning slide's % box (now ~70%). Part 1 comes from my 2013 deck, and I give the talk: I can't present what I can't talk about, which is why planning matters.
-- I3: Kent Beck's "Augmented Coding: Beyond the Vibes" (June 2025), maybe in "What others found".
+- I3: Kent Beck's "Augmented Coding: Beyond the Vibes" (June 2025). Researched 2026-10-19: anecdotal, TDD by prompt with Beck supervising; Q&A prep only, no slide.
 
