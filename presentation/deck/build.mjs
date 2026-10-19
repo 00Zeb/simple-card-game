@@ -25,6 +25,7 @@ const assets = {
   '/_blob/0d41c3060668c6909bede0bc4b9118c3': dataUri('assets/part1-old-days.jpg', 'image/jpeg'),
   '/_blob/474c4cd21352e0d81f24511608b2f523': dataUri('assets/part2-new-ways.jpg', 'image/jpeg'),
   '/_blob/ba9cd3996ce10338b698886fa2a9a999': dataUri('assets/part3-this-is-the-way.jpg', 'image/jpeg'),
+  '/_blob/5e9cac232f361cad345029dc962472d6': dataUri('assets/cover-robot-cairn.jpg', 'image/jpeg'),
 };
 
 const fonts = read('fonts/fonts.css')
